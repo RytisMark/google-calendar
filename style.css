@@ -1,0 +1,53 @@
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+.toolbar {
+    display: grid;
+    grid-template-areas:
+    'main-menu calendar-name today-btn nav-arrows today-date';
+    grid-template-columns: 1fr 2fr 1fr 1fr 8fr;
+    border: 1px solid red;
+}
+
+.main-menu {
+    grid-area: main-menu;
+}
+
+.line {
+    width: 20px;
+    height: 2.5px;
+    background-color: #777;
+    margin: 2px;
+}
+
+.nav-arrows {
+    grid-area: nav-arrows;
+}
+
+.nav-arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.right {
+    transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+}
+
+.calendar-name {
+    grid-area: calendar-name;
+}
+
+.today-btn {
+    grid-area: today-btn;
+}
+
+.today-date {
+    grid-area: today-date;
+}
