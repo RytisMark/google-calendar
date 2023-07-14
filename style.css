@@ -11,14 +11,14 @@ h1 {
 .toolbar {
     display: grid;
     grid-template-areas:
-        'main-menu calendar-name today-btn nav-arrows today-date';
+        'menu-btn calendar-name today-btn nav-arrows today-date';
     grid-template-columns: 0.5fr 2fr 0.7fr 0.5fr 8fr;
     align-items: center;
     border-bottom: 1px solid #ccc;
 }
 
-.main-menu {
-    grid-area: main-menu;
+.menu-btn {
+    grid-area: menu-btn;
     padding: 0 20px;
 }
 
@@ -41,6 +41,13 @@ h1 {
     border: solid #444;
     border-width: 0 2px 2px 0;
     padding: 3px;
+}
+
+.nav-arrow-small {
+    display: inline-block;
+    border: solid #444;
+    border-width: 0 2px 2px 0;
+    padding: 2px;
 }
 
 .arrow-right {
@@ -68,4 +75,61 @@ h1 {
 
 .today-date {
     grid-area: today-date;
+}
+
+.calendar {
+    display: grid;
+    grid-template-areas:
+        "main-menu calendar";
+    grid-template-columns: 1fr 6fr;
+}
+
+.main-menu {
+    grid-area: main-menu;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    gap: 20px;
+    width: 240px;
+}
+
+.create-event-btn {
+    font-size: 16px;
+    width: 140px;
+    height: 45px;
+    background-color: white;
+    border-radius: 45px;
+    border-color: white;
+    box-shadow:
+        -2px -2px rgba(0, 0, 0, 0.1),
+        2px 2px rgba(0, 0, 0, 0.1);
+    color: #444;
+}
+
+.overview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.overview-date {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.overview-weekdays {
+    color: #777;
+}
+
+.overview-weekdays, .overview-month-table {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    text-align: end;
+}
+
+li {
+    list-style: none;
+    flex: 1 0 8%;
+    font-size: 12px;
 }

@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gardevoir" /> <!-- CSS Reset-->
     <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Roboto font-->
+    <link rel="icon"
+        href="https://static.vecteezy.com/system/resources/previews/014/586/732/original/calendar-icon-a-red-calendar-for-reminders-of-appointments-and-important-festivals-in-the-year-png.png">
 </head>
 
 <body>
     <header class="toolbar">
-        <div class="main-menu">
+        <div class="menu-btn">
             <div class="menu-line"></div>
             <div class="menu-line"></div>
             <div class="menu-line"></div>
@@ -25,8 +27,42 @@
         </div>
         <h1 class="today-date">July 2023</h1>
     </header>
-    <main>calendar area</main>
 
+    <main class="calendar">
+        <article class="main-menu">
+            <button class="create-event-btn">Create Event</button>
+            <section class="month-overview">
+                <header class="overview-header">
+                    <h1 class="overview-date">July 2023</h1>
+                    <div class="nav-arrows">
+                        <div class="nav-arrow-small arrow-left"></div>
+                        <div class="nav-arrow-small arrow-right"></div>
+                    </div>
+                </header>
+                <ul class="overview-weekdays">
+                    <li>M</li>
+                    <li>T</li>
+                    <li>W</li>
+                    <li>T</li>
+                    <li>F</li>
+                    <li>S</li>
+                    <li>S</li>
+                </ul>
+                <ul class="overview-month-table">
+                    <li>26</li> <li>27</li> <li>28</li> <li>29</li> <li>30</li> <li>1</li> <li>2</li>
+                    <li>3</li> <li>4</li> <li>5</li> <li>6</li> <li>7</li> <li>8</li> <li>9</li>
+                    <li>10</li> <li>11</li> <li>12</li> <li>13</li> <li>14</li> <li>15</li> <li>16</li>
+                    <li>17</li> <li>18</li> <li>19</li> <li>20</li> <li>21</li> <li>22</li> <li>23</li>
+                    <li>24</li> <li>25</li> <li>26</li> <li>27</li> <li>28</li> <li>29</li> <li>30</li>
+                    <li>31</li> <li>1</li> <li>2</li> <li>3</li> <li>4</li> <li>5</li> <li>6</li>
+                </ul>
+            </section>
+        </article>
+        <article class="week-view">
+            <header class="week-header">Mon 9</header>
+            <table class="week-table">timetable</table>
+        </article>
+    </main>
 </body>
 
 </html>
