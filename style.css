@@ -166,14 +166,16 @@ h1 {
 
 
 .week-view {
-    overflow: auto;
+    overflow: hidden;
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .week-view-header {
     margin-left: 75px;
     margin-right: 12px;
-    min-width: calc(81px*7);
+    min-width: calc(81.75px*7);
 }
 
 .week-view-header>ul {
@@ -223,17 +225,18 @@ h1 {
 .list-of-times {
     margin: 0 6px 0 32px;
     display: grid;
-    /* row-gap: 40px; */
+    margin-top: -5px;
 }
 
 .list-of-times>li {
     list-style: none;
     font-size: 12px;
     color: #777;
+    min-height: 48px;
 }
 
-.list-of-times>li.invisible {
-    color: #ddd;
+.invisible {
+    visibility: hidden;
 }
 
 .outer-border-wrapper-left {
@@ -247,6 +250,7 @@ h1 {
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     margin-bottom: -1px;
+    min-height: calc(48px - -1px);
 }
 
 .week-view-table {
@@ -264,6 +268,6 @@ h1 {
 .table-cell {
     border-top: 1px solid #ccc;
     border-left: 1px solid #ccc;
-    height: 48px;
+    min-height: 48px;
     min-width: 81px;
 }
