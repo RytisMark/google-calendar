@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    font-size: 14px;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px #ccc;
+}
+
+.event-title {
+    font-size: 22px;
+    margin-bottom: 32px;
+}
+
+.start-date,
+.end-date {
+    color: #555;
+    margin-top: 2px;
+    margin-bottom: 30px;
+}
+
+.description {
+    font-size: 14px;
+    max-width: 420px;
+    resize: none;
+}
+
+:where(.event-title,
+    .start-date,
+    .end-date,
+    .description) {
+    border: 0px;
+    border-bottom: 2px solid #ccc;
+}
+
+:where(.event-title,
+    .start-date,
+    .end-date,
+    .description):focus {
+    outline: 0px;
+    border-bottom: 2px solid rgb(26, 115, 232);
+}
+
+.save-btn {
+    width: 75px;
+    height: 30px;
+    align-self: flex-end;
+    margin-top: 30px;
+    color: white;
+    background-color: rgb(26, 115, 232);
+    border-radius: 5px;
+}
