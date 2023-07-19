@@ -10,6 +10,16 @@ body {
     align-items: center;
 }
 
+:root {
+    --light-gray-color: #ccc;
+    --medium-gray-color: #bbb;
+    --dark-gray-color: #aaa;
+
+    --light-blue-color: rgb(54, 130, 232);
+    --medium-blue-color: rgb(26, 115, 232);
+    --dark-blue-color: rgb(19, 95, 232);
+}
+
 p {
     font-size: 14px;
 }
@@ -18,9 +28,19 @@ p {
     display: flex;
     flex-direction: column;
     width: 500px;
-    padding: 40px;
+    padding: 20px 40px 40px;
     border-radius: 10px;
-    box-shadow: 1px 1px 10px #ccc;
+    box-shadow: 1px 1px 10px var(--light-gray-color);
+}
+
+.close-btn {
+    align-self: flex-end;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 100%;
+    margin-bottom: 20px;
+    background-color: white;
 }
 
 .event-title {
@@ -46,7 +66,7 @@ p {
     .end-date,
     .description) {
     border: 0px;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid var(--light-gray-color);
 }
 
 :where(.event-title,
@@ -57,12 +77,41 @@ p {
     border-bottom: 2px solid rgb(26, 115, 232);
 }
 
-.save-btn {
+.submission-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.save-btn,
+.cancel-btn {
     width: 75px;
     height: 30px;
-    align-self: flex-end;
     margin-top: 30px;
-    color: white;
-    background-color: rgb(26, 115, 232);
     border-radius: 5px;
+    color: white;
+}
+
+.save-btn {
+    background-color: var(--medium-blue-color);
+}
+
+.save-btn:hover {
+    background-color: var(--light-blue-color);
+}
+
+.save-btn:hover:active {
+    background-color: var(--dark-blue-color);
+}
+
+.cancel-btn {
+    background-color: var(--medium-gray-color);
+}
+
+:where(.close-btn, .cancel-btn):hover {
+    background-color: var(--light-gray-color);
+}
+
+:where(.close-btn, .cancel-btn):hover:active {
+    background-color: var(--dark-gray-color);
 }
