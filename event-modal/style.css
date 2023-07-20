@@ -115,3 +115,7 @@ p {
 :where(.close-btn, .cancel-btn):hover:active {
     background-color: var(--dark-gray-color);
 }
+
+:where(.close-btn, .cancel-btn, .save-btn):hover {
+    cursor: pointer;
+}
