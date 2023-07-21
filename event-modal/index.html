@@ -10,17 +10,21 @@
 </head>
 
 <body>
-    <article class="modal">
+    <div class="modal">
         <form class="modal-form">
+            <button class="close-btn" type="reset">╳</button>
             <input type="text" class="event-title" placeholder="Add title" autofocus>
             <p>Start date:</p>
-            <input class="start-date" type="date" required>
+            <input class="start-date" type="datetime-local" required>
             <p>End date:</p>
-            <input class="end-date" type="date" required>
+            <input class="end-date" type="time" required>
             <textarea class="description" placeholder="Add description" rows="4"></textarea>
-            <button class="save-btn" type="submit">Save</button>
+            <div class="submission-btns">
+                <button class="cancel-btn" type="reset">Cancel</button>
+                <button class="save-btn" type="submit">Save</button>
+            </div>
         </form>
-    </article>
+    </div>
 </body>
 
 </html>
