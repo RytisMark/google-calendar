@@ -26,15 +26,12 @@ body {
 }
 
 .toolbar {
-	display: grid;
-	grid-template-areas: "menu-btn calendar-name today-btn nav-arrows today-date";
-	grid-template-columns: 0.5fr 2fr 0.7fr 0.5fr 8fr;
+	display: flex;
 	align-items: center;
 	border-bottom: 1px solid var(--misc-color);
 }
 
 .menu-btn {
-	grid-area: menu-btn;
 	justify-content: center;
 	padding: 16px 12px;
 	margin: 16px;
@@ -60,7 +57,8 @@ body {
 }
 
 .calendar-name {
-	grid-area: calendar-name;
+	flex: 2 0 auto;
+	margin-right: 20px;
 }
 
 .calendar-name,
@@ -71,9 +69,10 @@ body {
 }
 
 .today-btn {
-	grid-area: today-btn;
+	flex: 0.5 0 auto;
 	font-size: 15px;
-	width: 65px;
+	min-width: 65px;
+	max-width: 65px;
 	height: 35px;
 	background-color: white;
 	border-radius: 3px;
@@ -91,10 +90,11 @@ body {
 }
 
 .nav-arrows {
-	grid-area: nav-arrows;
+	flex: 1 1 auto;
 	display: flex;
 	gap: 10px;
-	margin: 0;
+	margin-left: 20px;
+	justify-content: flex-end;
 }
 
 .nav-arrow,
@@ -127,7 +127,8 @@ body {
 }
 
 .today-date {
-	grid-area: today-date;
+	flex: 20 1 auto;
+	margin-left: 20px;
 }
 
 .calendar {
