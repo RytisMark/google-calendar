@@ -146,6 +146,10 @@ body {
 	width: 240px;
 }
 
+.non-displayed {
+	display: none;
+}
+
 .create-event-btn {
 	font-size: 16px;
 	width: 140px;
@@ -153,8 +157,7 @@ body {
 	background-color: white;
 	border-radius: 45px;
 	border-color: white;
-	box-shadow: 0px 1px 2px 0px var(--misc-color),
-		0px 1px 3px 1px var(--misc-color);
+	box-shadow: 0px 1px 2px 0px var(--misc-color), 0px 1px 3px 1px var(--misc-color);
 	color: var(--primary-color);
 }
 
@@ -171,6 +174,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	margin: 10px;
 }
 
 .overview-header {
@@ -186,22 +190,76 @@ body {
 	color: var(--primary-color);
 }
 
-.overview-weekdays {
+.overview-weekdays,
+.other-month {
 	color: var(--secondary-color);
 }
 
 .overview-weekdays,
 .overview-month-table {
 	display: flex;
-	gap: 15px;
+	gap: 12px;
 	flex-wrap: wrap;
-	text-align: end;
+	text-align: center;
 }
 
-:where(.overview-weekdays, .overview-month-table) > span {
-	list-style: none;
+.overview-weekdays > span,
+.overview-month-table > button {
 	flex: 1 0 8%;
+}
+
+.overview-weekdays > span {
 	font-size: 12px;
+}
+
+.overview-month-table > button {
+	font-size: 10px;
+	border-radius: 100%;
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	width: 20px;
+	height: 20px;
+}
+
+.overview-month-table > button:hover {
+	background-color: var(--primary-btn-hover-color);
+}
+
+.overview-month-table > button:hover:active {
+	background-color: var(--primary-btn-active-color);
+}
+
+.overview-month-table > .current-day {
+	background-color: rgb(210, 227, 252);
+	color: rgb(24, 90, 188);
+}
+
+.overview-month-table > .current-day:hover {
+	background-color: rgb(174, 203, 250);
+}
+
+.overview-month-table > .current-day:hover:active {
+	background-color: rgb(146, 183, 243);
+}
+
+.current-day.other-month {
+	background-color: rgb(241, 243, 244);
+	color: rgb(24, 90, 188);
+}
+
+.overview-month-table > .present-day {
+	background-color: rgb(26, 115, 232);
+	color: white;
+}
+
+.overview-month-table > .present-day:hover {
+	background-color: rgb(25, 103, 210);
+}
+
+.overview-month-table > .present-day:hover:active {
+	background-color: rgb(24, 90, 188);
 }
 
 .week-view {
@@ -222,7 +280,8 @@ body {
 	grid-template-columns: repeat(7, 1fr);
 	text-align: center;
 	color: var(--secondary-color);
-	margin: 20px 0 0 0;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .weekday {
@@ -235,8 +294,23 @@ body {
 	font-size: 12px;
 }
 
+.day-of-week.present-day {
+	color: rgb(26, 115, 232);
+}
+
 .day-of-month {
 	font-size: 26px;
+}
+
+.day-of-month.present-day {
+	background-color: rgb(26, 115, 232);
+	color: white;
+	border-radius: 100%;
+	width: 46px;
+	height: 46px;
+	margin: -8px;
+	padding: 8px;
+	align-self: center;
 }
 
 .outer-border-wrapper-top {
@@ -307,4 +381,122 @@ body {
 	border-left: 1px solid var(--misc-color);
 	min-height: var(--table-cell-height);
 	min-width: var(--table-cell-width);
+}
+
+/* Event creation modal */
+
+.modal {
+	display: visible;
+	position: fixed;
+	z-index: 1;
+	position: fixed;
+	top: 25%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	background-color: white;
+}
+
+:root .modal {
+	--primary-misc-color: #bbb;
+	--primary-btn-hover-color: #ccc;
+	--primary-btn-active-color: #aaa;
+
+	--secondary-misc-color: rgb(26, 115, 232);
+	--secondary-btn-hover-color: rgb(54, 130, 232);
+	--secondary-btn-active-color: rgb(19, 95, 232);
+}
+
+.start-date-text,
+.end-date-text {
+	font-size: 14px;
+}
+
+.modal-form {
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+	padding: 20px 40px 40px;
+	border-radius: 10px;
+	box-shadow: 1px 1px 10px var(--primary-misc-color);
+}
+
+.close-btn {
+	align-self: flex-end;
+	width: 30px;
+	height: 30px;
+	border: none;
+	border-radius: 100%;
+	margin-bottom: 20px;
+	background-color: white;
+}
+
+.event-title {
+	font-size: 22px;
+	margin-bottom: 32px;
+}
+
+.start-date,
+.end-date {
+	color: #555;
+	margin-top: 2px;
+	margin-bottom: 30px;
+}
+
+.description {
+	font-size: 14px;
+	max-width: 420px;
+	resize: none;
+}
+
+:where(.event-title, .start-date, .end-date, .description) {
+	border: 0px;
+	border-bottom: 2px solid var(--primary-misc-color);
+}
+
+:where(.event-title, .start-date, .end-date, .description):focus {
+	outline: 0px;
+	border-bottom: 2px solid var(--secondary-misc-color);
+}
+
+.submission-btns {
+	display: flex;
+	gap: 10px;
+	justify-content: flex-end;
+}
+
+.save-btn,
+.cancel-btn {
+	width: 75px;
+	height: 30px;
+	margin-top: 30px;
+	border-radius: 5px;
+	color: white;
+}
+
+.save-btn {
+	background-color: var(--secondary-misc-color);
+}
+
+.save-btn:hover {
+	background-color: var(--secondary-btn-hover-color);
+}
+
+.save-btn:hover:active {
+	background-color: var(--secondary-btn-active-color);
+}
+
+.cancel-btn {
+	background-color: var(--primary-misc-color);
+}
+
+:where(.close-btn, .cancel-btn):hover {
+	background-color: var(--primary-btn-hover-color);
+}
+
+:where(.close-btn, .cancel-btn):hover:active {
+	background-color: var(--primary-btn-active-color);
+}
+
+:where(.close-btn, .cancel-btn, .save-btn):hover {
+	cursor: pointer;
 }

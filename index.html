@@ -1,385 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Booble Kalendar</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gardevoir" />
+		<link rel="stylesheet" href="style.css" />
+		<script type="module" src="index.js" defer></script>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="icon"
+			href="https://static.vecteezy.com/system/resources/previews/014/586/732/original/calendar-icon-a-red-calendar-for-reminders-of-appointments-and-important-festivals-in-the-year-png.png"
+		/>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booble Kalendar</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gardevoir" /> <!-- CSS Reset -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet"> <!-- Font -->
-    <link rel="icon"
-        href="https://static.vecteezy.com/system/resources/previews/014/586/732/original/calendar-icon-a-red-calendar-for-reminders-of-appointments-and-important-festivals-in-the-year-png.png">
-</head>
+	<body>
+		<header class="toolbar">
+			<button class="menu-btn">
+				<div class="menu-line"></div>
+				<div class="menu-line"></div>
+				<div class="menu-line"></div>
+			</button>
+			<h1 class="calendar-name">Booble Kalendar</h1>
+			<button class="today-btn">Today</button>
+			<div class="nav-arrows">
+				<button class="nav-arrow arrow-left"><</button>
+				<button class="nav-arrow arrow-right">></button>
+			</div>
+			<h2 class="today-date">July 2023</h2>
+		</header>
 
-<body>
-    <header class="toolbar">
-        <button class="menu-btn">
-            <div class="menu-line"></div>
-            <div class="menu-line"></div>
-            <div class="menu-line"></div>
-        </button>
-        <h1 class="calendar-name">Booble Kalendar</h1>
-        <button class="today-btn">Today</button>
-        <div class="nav-arrows">
-            <button class="nav-arrow arrow-left">
-                < </button>
-                    <button class="nav-arrow arrow-right"> > </button>
-        </div>
-        <h2 class="today-date">July 2023</h2>
-    </header>
-
-    <main class="calendar">
-        <aside class="main-menu">
-            <button class="create-event-btn">Create Event</button>
-            <section class="month-overview">
-                <header class="overview-header">
-                    <h3 class="overview-date">July 2023</h3>
-                    <div class="nav-arrows">
-                        <button class="nav-arrow-small arrow-left">
-                            < </button>
-                                <button class="nav-arrow-small arrow-right"> > </button>
-                    </div>
-                </header>
-                <div class="overview-weekdays">
-                    <span>M</span>
-                    <span>T</span>
-                    <span>W</span>
-                    <span>T</span>
-                    <span>F</span>
-                    <span>S</span>
-                    <span>S</span>
-                </div>
-                <div class="overview-month-table">
-                    <span>26</span>
-                    <span>27</span>
-                    <span>28</span>
-                    <span>29</span>
-                    <span>30</span>
-                    <span>1</span>
-                    <span>2</span>
-                    <span>3</span>
-                    <span>4</span>
-                    <span>5</span>
-                    <span>6</span>
-                    <span>7</span>
-                    <span>8</span>
-                    <span>9</span>
-                    <span>10</span>
-                    <span>11</span>
-                    <span>12</span>
-                    <span>13</span>
-                    <span>14</span>
-                    <span>15</span>
-                    <span>16</span>
-                    <span>17</span>
-                    <span>18</span>
-                    <span>19</span>
-                    <span>20</span>
-                    <span>21</span>
-                    <span>22</span>
-                    <span>23</span>
-                    <span>24</span>
-                    <span>25</span>
-                    <span>26</span>
-                    <span>27</span>
-                    <span>28</span>
-                    <span>29</span>
-                    <span>30</span>
-                    <span>31</span>
-                    <span>1</span>
-                    <span>2</span>
-                    <span>3</span>
-                    <span>4</span>
-                    <span>5</span>
-                    <span>6</span>
-                </div>
-            </section>
-        </aside>
-        <div class="week-view">
-            <header class="week-view-header">
-                <div class="weekdays">
-                    <div class="weekday">
-                        <span class="day-of-week">MON</span>
-                        <span class="day-of-month">10</span>
-                    </div>
-                    <div class="weekday">
-                        <span class="day-of-week">TUE</span>
-                        <span class="day-of-month">11</span>
-                    </div>
-                    <div class="weekday">
-                        <span class="day-of-week">WED</span>
-                        <span class="day-of-month">12</span>
-                    </div>
-                    <div class="weekday">
-                        <span class="day-of-week">THU</span>
-                        <span class="day-of-month">13</span>
-                    </div>
-                    <div class="weekday">
-                        <span class="day-of-week">FRI</span>
-                        <span class="day-of-month">14</span>
-                    </div>
-                    <div class="weekday">
-                        <span class="day-of-week">SAT</span>
-                        <span class="day-of-month">15</span>
-                    </div>
-                    <div class="weekday">
-                        <span class="day-of-week">SUN</span>
-                        <span class="day-of-month">16</span>
-                    </div>
-                </div>
-                <div class="outer-border-wrapper-top">
-                    <div class="outer-border-cell-top"></div>
-                    <div class="outer-border-cell-top"></div>
-                    <div class="outer-border-cell-top"></div>
-                    <div class="outer-border-cell-top"></div>
-                    <div class="outer-border-cell-top"></div>
-                    <div class="outer-border-cell-top"></div>
-                    <div class="outer-border-cell-top invisible"></div>
-                </div>
-            </header>
-            <div class="week-table-and-time">
-                <ol class="list-of-times">
-                    <li class="invisible">00:00</li>
-                    <li>01:00</li>
-                    <li>02:00</li>
-                    <li>03:00</li>
-                    <li>04:00</li>
-                    <li>05:00</li>
-                    <li>06:00</li>
-                    <li>07:00</li>
-                    <li>08:00</li>
-                    <li>09:00</li>
-                    <li>10:00</li>
-                    <li>11:00</li>
-                    <li>12:00</li>
-                    <li>13:00</li>
-                    <li>14:00</li>
-                    <li>15:00</li>
-                    <li>16:00</li>
-                    <li>17:00</li>
-                    <li>18:00</li>
-                    <li>19:00</li>
-                    <li>20:00</li>
-                    <li>21:00</li>
-                    <li>22:00</li>
-                    <li>23:00</li>
-                </ol>
-                <div class="outer-border-wrapper-left">
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left"></div>
-                    <div class="outer-border-cell-left invisible"></div>
-                </div>
-                <div class="week-view-table">
-                    <div class="table-column">
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                    </div>
-                    <div class="table-column">
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                    </div>
-                    <div class="table-column">
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                    </div>
-                    <div class="table-column">
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                    </div>
-                    <div class="table-column">
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                    </div>
-                    <div class="table-column">
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                    </div>
-                    <div class="table-column">
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                        <div class="table-cell"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-</body>
-
+		<main class="calendar">
+			<aside class="main-menu">
+				<button class="create-event-btn">Create Event</button>
+				<section class="month-overview">
+					<header class="overview-header">
+						<h3 class="overview-date">July 2023</h3>
+						<div class="nav-arrows">
+							<button class="nav-arrow-small arrow-left"><</button>
+							<button class="nav-arrow-small arrow-right">></button>
+						</div>
+					</header>
+					<div class="overview-weekdays">
+						<span>M</span>
+						<span>T</span>
+						<span>W</span>
+						<span>T</span>
+						<span>F</span>
+						<span>S</span>
+						<span>S</span>
+					</div>
+					<div class="overview-month-table">
+						<button>26</button>
+						<button>27</button>
+						<button>28</button>
+						<button>29</button>
+						<button>30</button>
+						<button>1</button>
+						<button>2</button>
+						<button>3</button>
+						<button>4</button>
+						<button>5</button>
+						<button>6</button>
+						<button>7</button>
+						<button>8</button>
+						<button>9</button>
+						<button>10</button>
+						<button>11</button>
+						<button>12</button>
+						<button>13</button>
+						<button>14</button>
+						<button>15</button>
+						<button>16</button>
+						<button>17</button>
+						<button>18</button>
+						<button>19</button>
+						<button>20</button>
+						<button>21</button>
+						<button>22</button>
+						<button>23</button>
+						<button>24</button>
+						<button>25</button>
+						<button>26</button>
+						<button>27</button>
+						<button>28</button>
+						<button>29</button>
+						<button>30</button>
+						<button>31</button>
+						<button>1</button>
+						<button>2</button>
+						<button>3</button>
+						<button>4</button>
+						<button>5</button>
+						<button>6</button>
+					</div>
+				</section>
+			</aside>
+			<div class="week-view">
+				<header class="week-view-header">
+					<div class="weekdays">
+						<div class="weekday">
+							<span class="day-of-week">MON</span>
+							<span class="day-of-month">10</span>
+						</div>
+						<div class="weekday">
+							<span class="day-of-week">TUE</span>
+							<span class="day-of-month">11</span>
+						</div>
+						<div class="weekday">
+							<span class="day-of-week">WED</span>
+							<span class="day-of-month">12</span>
+						</div>
+						<div class="weekday">
+							<span class="day-of-week">THU</span>
+							<span class="day-of-month">13</span>
+						</div>
+						<div class="weekday">
+							<span class="day-of-week">FRI</span>
+							<span class="day-of-month">14</span>
+						</div>
+						<div class="weekday">
+							<span class="day-of-week">SAT</span>
+							<span class="day-of-month">15</span>
+						</div>
+						<div class="weekday">
+							<span class="day-of-week">SUN</span>
+							<span class="day-of-month">16</span>
+						</div>
+					</div>
+					<div class="outer-border-wrapper-top">
+						<div class="outer-border-cell-top"></div>
+						<div class="outer-border-cell-top"></div>
+						<div class="outer-border-cell-top"></div>
+						<div class="outer-border-cell-top"></div>
+						<div class="outer-border-cell-top"></div>
+						<div class="outer-border-cell-top"></div>
+						<div class="outer-border-cell-top invisible"></div>
+					</div>
+				</header>
+				<div class="week-table-and-time">
+					<ol class="list-of-times">
+						<li class="invisible">00:00</li>
+						<li>01:00</li>
+						<li>02:00</li>
+						<li>03:00</li>
+						<li>04:00</li>
+						<li>05:00</li>
+						<li>06:00</li>
+						<li>07:00</li>
+						<li>08:00</li>
+						<li>09:00</li>
+						<li>10:00</li>
+						<li>11:00</li>
+						<li>12:00</li>
+						<li>13:00</li>
+						<li>14:00</li>
+						<li>15:00</li>
+						<li>16:00</li>
+						<li>17:00</li>
+						<li>18:00</li>
+						<li>19:00</li>
+						<li>20:00</li>
+						<li>21:00</li>
+						<li>22:00</li>
+						<li>23:00</li>
+					</ol>
+					<div class="outer-border-wrapper-left">
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left"></div>
+						<div class="outer-border-cell-left invisible"></div>
+					</div>
+					<div class="week-view-table"></div>
+				</div>
+			</div>
+		</main>
+		<div class="modal">
+			<form class="modal-form">
+				<button class="close-btn" type="reset">╳</button>
+				<input type="text" class="event-title" placeholder="Add title" autofocus />
+				<p class="start-date-text">Start date:</p>
+				<input class="start-date" type="datetime-local" required />
+				<p class="end-date-text">End date:</p>
+				<input class="end-date" type="time" required />
+				<textarea class="description" placeholder="Add description" rows="4"></textarea>
+				<div class="submission-btns">
+					<button class="cancel-btn" type="reset">Cancel</button>
+					<button class="save-btn" type="submit">Save</button>
+				</div>
+			</form>
+		</div>
+	</body>
 </html>
