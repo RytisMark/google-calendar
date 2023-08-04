@@ -219,8 +219,9 @@ body {
 	border: none;
 	padding: 0;
 	cursor: pointer;
+	line-height: 20px;
 	width: 20px;
-	height: 20px;
+	height: 22px;
 }
 
 .overview-month-table > button:hover {
@@ -388,7 +389,7 @@ body {
 .modal {
 	display: visible;
 	position: fixed;
-	z-index: 1;
+	z-index: 2;
 	position: fixed;
 	top: 25%;
 	left: 50%;
@@ -499,4 +500,16 @@ body {
 
 :where(.close-btn, .cancel-btn, .save-btn):hover {
 	cursor: pointer;
+}
+
+.event {
+	position: relative;
+	z-index: 1;
+	background-color: rgb(3, 155, 229);
+	color: white;
+	min-height: var(--table-cell-height);
+	min-width: var(--table-cell-width);
+	max-width: 200px;
+	border-radius: 2%;
+	overflow: hidden;
 }

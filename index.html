@@ -201,9 +201,9 @@
 		<div class="modal">
 			<form class="modal-form">
 				<button class="close-btn" type="reset">╳</button>
-				<input type="text" class="event-title" placeholder="Add title" autofocus />
+				<input type="text" class="event-title" placeholder="Add title" autofocus required />
 				<p class="start-date-text">Start date:</p>
-				<input class="start-date" type="datetime-local" required />
+				<input class="start-date" type="datetime-local" max="3000-01-01T00:00" required />
 				<p class="end-date-text">End date:</p>
 				<input class="end-date" type="time" required />
 				<textarea class="description" placeholder="Add description" rows="4"></textarea>
