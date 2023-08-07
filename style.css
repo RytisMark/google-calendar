@@ -510,6 +510,6 @@ body {
 	min-height: var(--table-cell-height);
 	min-width: var(--table-cell-width);
 	max-width: 200px;
-	border-radius: 2%;
+	border-radius: 5px;
 	overflow: hidden;
 }
