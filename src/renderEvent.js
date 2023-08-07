@@ -10,8 +10,8 @@ export function renderEvent(newEvent) {
 	eventElement.textContent = eventTitle;
 	const columnNum = startDate.getDay() || 7;
 	const weekViewTable = document.querySelector(".week-view-table");
-	const tableCol = weekViewTable.querySelector(`:nth-child(${columnNum})`);
-	const tableCell = tableCol.querySelector(`:nth-child(${startHour})`);
+	const tableCol = weekViewTable.querySelector(`:nth-child(${columnNum} of .table-column)`);
+	const tableCell = tableCol.querySelector(`:nth-child(${startHour + 1})`);
 
-	tableCol.append(eventElement);
+	tableCell.append(eventElement);
 }

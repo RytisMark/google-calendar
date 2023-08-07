@@ -1,0 +1,115 @@
+.modal {
+	display: visible;
+	position: fixed;
+	z-index: 2;
+	position: fixed;
+	top: 25%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	background-color: white;
+}
+
+:root .modal {
+	--primary-misc-color: #bbb;
+	--primary-btn-hover-color: #ccc;
+	--primary-btn-active-color: #aaa;
+
+	--secondary-misc-color: rgb(26, 115, 232);
+	--secondary-btn-hover-color: rgb(54, 130, 232);
+	--secondary-btn-active-color: rgb(19, 95, 232);
+}
+
+.start-date-text,
+.end-date-text {
+	font-size: 14px;
+}
+
+.modal-form {
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+	padding: 20px 40px 40px;
+	border-radius: 10px;
+	box-shadow: 1px 1px 10px var(--primary-misc-color);
+}
+
+.close-btn {
+	align-self: flex-end;
+	width: 30px;
+	height: 30px;
+	border: none;
+	border-radius: 100%;
+	margin-bottom: 20px;
+	background-color: white;
+}
+
+.event-title {
+	font-size: 22px;
+	margin-bottom: 32px;
+}
+
+.start-date,
+.end-date {
+	color: #555;
+	margin-top: 2px;
+	margin-bottom: 30px;
+}
+
+.description {
+	font-size: 14px;
+	max-width: 420px;
+	resize: none;
+}
+
+:where(.event-title, .start-date, .end-date, .description) {
+	border: 0px;
+	border-bottom: 2px solid var(--primary-misc-color);
+}
+
+:where(.event-title, .start-date, .end-date, .description):focus {
+	outline: 0px;
+	border-bottom: 2px solid var(--secondary-misc-color);
+}
+
+.submission-btns {
+	display: flex;
+	gap: 10px;
+	justify-content: flex-end;
+}
+
+.save-btn,
+.cancel-btn {
+	width: 75px;
+	height: 30px;
+	margin-top: 30px;
+	border-radius: 5px;
+	color: white;
+}
+
+.save-btn {
+	background-color: var(--secondary-misc-color);
+}
+
+.save-btn:hover {
+	background-color: var(--secondary-btn-hover-color);
+}
+
+.save-btn:hover:active {
+	background-color: var(--secondary-btn-active-color);
+}
+
+.cancel-btn {
+	background-color: var(--primary-misc-color);
+}
+
+:where(.close-btn, .cancel-btn):hover {
+	background-color: var(--primary-btn-hover-color);
+}
+
+:where(.close-btn, .cancel-btn):hover:active {
+	background-color: var(--primary-btn-active-color);
+}
+
+:where(.close-btn, .cancel-btn, .save-btn):hover {
+	cursor: pointer;
+}

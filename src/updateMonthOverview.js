@@ -1,5 +1,4 @@
-import { updateWeekdays } from "./updateWeekdays.js";
-import { updateMonthAndYear } from "./updateMonthAndYear.js";
+import { updateCalendar } from "./updateCalendar.js";
 
 export function updateMonthOverview(calendarInfo) {
 	const stateDate = calendarInfo.stateDate;
@@ -47,9 +46,7 @@ export function updateMonthOverview(calendarInfo) {
 		monthday.onclick = () => {
 			calendarInfo.stateDate = new Date(overviewDate.getFullYear(), overviewDate.getMonth(), day - weekDayOfFirstDay + 1);
 			calendarInfo.overviewDate = new Date(calendarInfo.stateDate);
-			updateWeekdays(calendarInfo);
-			updateMonthAndYear(calendarInfo);
-			updateMonthOverview(calendarInfo);
+			updateCalendar(calendarInfo);
 		};
 	}
 }

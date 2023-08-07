@@ -3,6 +3,7 @@ import { createEvent } from "./src/createEvent.js";
 import { getEventIds } from "./src/getEventIds.js";
 import { updateCalendar } from "./src/updateCalendar.js";
 import { updateMiniCalendar } from "./src/updateMiniCalendar.js";
+import { checkLimits } from "./src/checkLimits.js";
 
 const calendarInfo = {
 	stateDate: new Date(),
@@ -35,7 +36,10 @@ createEventBtn.onclick = () => {
 modalForm.addEventListener("submit", e => {
 	e.preventDefault();
 	createEvent(calendarInfo);
+	updateCalendar(calendarInfo);
 });
+
+saveBtn.onclick = () => checkLimits();
 
 closeBtn.onclick = () => {
 	modal.classList.toggle("non-displayed");
