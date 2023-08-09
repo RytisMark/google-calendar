@@ -1,9 +1,11 @@
-import { createTable } from "./src/createTable.js";
-import { createEvent } from "./src/createEvent.js";
-import { getEventIds } from "./src/getEventIds.js";
-import { updateCalendar } from "./src/updateCalendar.js";
-import { updateMiniCalendar } from "./src/updateMiniCalendar.js";
-import { checkLimits } from "./src/checkLimits.js";
+import { createTable } from "./src/utils/generators/createTable.js";
+import { createEventObject } from "./src/utils/generators/createEventObject.js";
+import { getEventIds } from "./src/utils/getters/getEventIds.js";
+import { updateCalendar } from "./src/utils/updaters/updateCalendar.js";
+import { updateMiniCalendar } from "./src/utils/updaters/updateMiniCalendar.js";
+import { updateEventInputError } from "./src/utils/updaters/updateEventInputError.js";
+import { isCorrectDate } from "./src/utils/checkers/isCorrectDate.js";
+import { saveEventToLocalStorage } from "./src/utils/updaters/saveEventToLocalStorage.js";
 
 const calendarInfo = {
 	stateDate: new Date(),
@@ -21,33 +23,57 @@ const prevMonthViewBtn = document.querySelector(".nav-arrow-small.arrow-left");
 const createEventBtn = document.querySelector(".create-event-btn");
 const modal = document.querySelector(".modal");
 const modalForm = document.querySelector(".modal-form");
-const closeBtn = document.querySelector(".close-btn");
+const eventTitle = document.querySelector(".event-title");
+const closeBtn = document.querySelector(".modal-form > .close-btn");
 const cancelBtn = document.querySelector(".cancel-btn");
 const saveBtn = document.querySelector(".save-btn");
+const eventDescModal = document.querySelector(".event-desc-modal");
 
 menuBtn.onclick = () => {
 	mainMenuBtn.classList.toggle("non-displayed");
 };
 
-createEventBtn.onclick = () => {
+createEventBtn.onclick = e => {
+	modalForm.reset();
 	modal.classList.toggle("non-displayed");
+	eventTitle.focus();
+	e.stopPropagation();
 };
+
+document.addEventListener("click", () => {
+	modal.classList.add("non-displayed");
+	eventDescModal.classList.add("non-displayed");
+});
+
+document.addEventListener("keyup", e => {
+	if (e.key === "Escape") modal.classList.add("non-displayed");
+});
+
+modal.onclick = e => e.stopPropagation();
 
 modalForm.addEventListener("submit", e => {
 	e.preventDefault();
-	createEvent(calendarInfo);
+	saveEventToLocalStorage(createEventObject(calendarInfo));
+	modal.classList.toggle("non-displayed");
 	updateCalendar(calendarInfo);
+	modalForm.reset();
 });
 
-saveBtn.onclick = () => checkLimits();
-
 closeBtn.onclick = () => {
-	modal.classList.toggle("non-displayed");
+	modal.classList.add("non-displayed");
+	modalForm.reset();
 };
 
 cancelBtn.onclick = () => {
-	modal.classList.toggle("non-displayed");
+	modal.classList.add("non-displayed");
+	modalForm.reset();
 };
+
+saveBtn.onclick = () => updateEventInputError(isCorrectDate());
+
+eventDescModal.addEventListener("click", e => {
+	e.stopPropagation();
+});
 
 todayBtn.onclick = () => {
 	calendarInfo.stateDate = new Date();

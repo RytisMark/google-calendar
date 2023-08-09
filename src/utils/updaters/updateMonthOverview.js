@@ -1,4 +1,7 @@
 import { updateCalendar } from "./updateCalendar.js";
+import { getDateWithNewDay } from "../getters/getDateWithNewDay.js";
+import { isSameDay } from "../checkers/isSameDay.js";
+import { isSameMonth } from "../checkers/isSameMonth.js";
 
 export function updateMonthOverview(calendarInfo) {
 	const stateDate = calendarInfo.stateDate;
@@ -6,17 +9,16 @@ export function updateMonthOverview(calendarInfo) {
 
 	let tempDate = new Date();
 	const today = new Date();
-	const weekDayOfFirstDay = new Date(overviewDate.getFullYear(), overviewDate.getMonth(), 1).getDay() || 7;
+	const weekDayOfFirstDay = getDateWithNewDay(overviewDate, 1).getDay() || 7;
 
 	const overviewMonthTable = document.querySelector(".overview-month-table");
 	for (let day = 1; day <= 42; day++) {
 		const monthday = overviewMonthTable.querySelector(`:nth-child(${day})`);
 
-		tempDate = new Date(overviewDate.getFullYear(), overviewDate.getMonth(), day - weekDayOfFirstDay + 1);
-		const nthDay = tempDate.getDate();
-		monthday.textContent = nthDay;
+		tempDate = getDateWithNewDay(overviewDate, 1 + day - weekDayOfFirstDay);
+		monthday.textContent = tempDate.getDate();
 
-		if (tempDate.getMonth() != overviewDate.getMonth()) {
+		if (!isSameMonth(tempDate, overviewDate)) {
 			monthday.classList.add("other-month");
 		} else {
 			monthday.classList.remove("other-month");
@@ -32,19 +34,14 @@ export function updateMonthOverview(calendarInfo) {
 			monthday.classList.remove("current-day");
 		}
 
-		if (
-			tempDate.getFullYear() === today.getFullYear() &&
-			tempDate.getMonth() === today.getMonth() &&
-			tempDate.getDate() === today.getDate() &&
-			tempDate.getDay() === today.getDay()
-		) {
+		if (isSameDay(tempDate, today)) {
 			monthday.classList.add("present-day");
 		} else {
 			monthday.classList.remove("present-day");
 		}
 
 		monthday.onclick = () => {
-			calendarInfo.stateDate = new Date(overviewDate.getFullYear(), overviewDate.getMonth(), day - weekDayOfFirstDay + 1);
+			calendarInfo.stateDate = getDateWithNewDay(overviewDate, 1 + day - weekDayOfFirstDay);
 			calendarInfo.overviewDate = new Date(calendarInfo.stateDate);
 			updateCalendar(calendarInfo);
 		};

@@ -1,5 +1,5 @@
-import { getDateNthDaysAway } from "./getDateNthDaysAway.js";
-import { getMonthName } from "./getMonthName.js";
+import { getDateNthDaysAway } from "../getters/getDateNthDaysAway.js";
+import { getMonthName } from "../getters/getMonthName.js";
 
 export function updateMonthAndYear(calendarInfo) {
 	const stateDate = calendarInfo.stateDate;

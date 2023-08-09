@@ -378,6 +378,8 @@ body {
 }
 
 .table-cell {
+	/* display: flex; */
+	/* gap: 1px; */
 	border-top: 1px solid var(--misc-color);
 	border-left: 1px solid var(--misc-color);
 	min-height: var(--table-cell-height);
@@ -385,13 +387,17 @@ body {
 }
 
 .event {
+	/* flex: 1; */
 	position: relative;
 	z-index: 1;
+	min-width: calc(var(--table-cell-width) - 15px);
+	max-width: calc(100% - 15px);
+	border-radius: 5px;
+	border: 1px solid white;
+	overflow: hidden;
 	background-color: rgb(3, 155, 229);
 	color: white;
-	min-height: var(--table-cell-height);
-	min-width: var(--table-cell-width);
-	max-width: 200px;
-	border-radius: 5px;
-	overflow: hidden;
+	font-size: 12px;
+	padding: 4px 0px 4px 8px;
+	cursor: pointer;
 }

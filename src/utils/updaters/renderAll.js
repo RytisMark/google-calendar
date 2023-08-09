@@ -1,5 +1,5 @@
 import { renderEvent } from "./renderEvent.js";
-import { isSameWeek } from "./isSameWeek.js";
+import { isSameWeek } from "../checkers/isSameWeek.js";
 
 export function renderAll(calendarInfo) {
 	const currDate = calendarInfo.stateDate;

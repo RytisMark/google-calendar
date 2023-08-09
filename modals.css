@@ -1,15 +1,4 @@
-.modal {
-	display: visible;
-	position: fixed;
-	z-index: 2;
-	position: fixed;
-	top: 25%;
-	left: 50%;
-	transform: translate(-50%, 0);
-	background-color: white;
-}
-
-:root .modal {
+:root {
 	--primary-misc-color: #bbb;
 	--primary-btn-hover-color: #ccc;
 	--primary-btn-active-color: #aaa;
@@ -17,6 +6,27 @@
 	--secondary-misc-color: rgb(26, 115, 232);
 	--secondary-btn-hover-color: rgb(54, 130, 232);
 	--secondary-btn-active-color: rgb(19, 95, 232);
+}
+
+/* Event creation modal */
+
+.modal,
+.event-desc-modal {
+	position: fixed;
+	z-index: 2;
+	top: 25%;
+	left: 50%;
+	background-color: white;
+}
+
+.modal {
+	transform: translate(-50%, 0);
+}
+
+.modal,
+.modal-form,
+.event-desc-modal {
+	border-radius: 10px;
 }
 
 .start-date-text,
@@ -29,7 +39,6 @@
 	flex-direction: column;
 	width: 500px;
 	padding: 20px 40px 40px;
-	border-radius: 10px;
 	box-shadow: 1px 1px 10px var(--primary-misc-color);
 }
 
@@ -112,4 +121,55 @@
 
 :where(.close-btn, .cancel-btn, .save-btn):hover {
 	cursor: pointer;
+}
+
+/* Event description modal */
+.event-desc-modal {
+	transform: translate(75%, -100%);
+	width: 500px;
+	padding: 20px 40px 40px;
+	box-shadow: 1px 1px 10px var(--primary-misc-color);
+}
+
+.desc-modal-btns {
+	display: flex;
+	justify-content: flex-end;
+	height: 30px;
+}
+
+.trash-btn {
+	width: 30px;
+	height: 30px;
+	border: none;
+	border-radius: 100%;
+	margin-bottom: 20px;
+	background-color: white;
+	cursor: pointer;
+}
+
+.trash-btn:hover {
+	background-color: var(--primary-btn-hover-color);
+}
+
+.trash-btn:hover:active {
+	background-color: var(--primary-btn-active-color);
+}
+
+.desc-modal-btns > .close-btn {
+	margin-bottom: 0px;
+}
+
+.event-desc-title {
+	font-weight: 500;
+	font-size: 22px;
+}
+
+.event-desc-time {
+	font-size: 14px;
+}
+
+.event-desc {
+	font-size: 14px;
+	margin-top: 20px;
+	color: var(--primary-btn-active-color);
 }
