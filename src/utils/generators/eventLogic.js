@@ -1,6 +1,7 @@
 import { getEventTime } from "../getters/getEventTime.js";
+import { removeEventFromStorage } from "../updaters/removeEventFromStorage.js";
 
-export function eventLogic(eventElement, eventObj) {
+export function eventLogic(eventElement, eventObj, calendarInfo) {
 	let { eventId, eventTitle, startDateTxt, endDateTxt, description } = eventObj;
 	const startDate = new Date(startDateTxt);
 	const endDate = new Date(endDateTxt);
@@ -27,7 +28,7 @@ export function eventLogic(eventElement, eventObj) {
 
 	trashBtn.onclick = () => {
 		eventElement.parentNode.removeChild(eventElement);
-		localStorage.removeItem(eventId);
+		removeEventFromStorage(eventId, calendarInfo);
 		eventDesc.classList.add("non-displayed");
 	};
 

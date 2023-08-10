@@ -1,16 +1,18 @@
 import { createTable } from "./src/utils/generators/createTable.js";
 import { createEventObject } from "./src/utils/generators/createEventObject.js";
 import { getEventIds } from "./src/utils/getters/getEventIds.js";
+import { getEvents } from "./src/utils/getters/getEvents.js";
 import { updateCalendar } from "./src/utils/updaters/updateCalendar.js";
 import { updateMiniCalendar } from "./src/utils/updaters/updateMiniCalendar.js";
 import { updateEventInputError } from "./src/utils/updaters/updateEventInputError.js";
 import { isCorrectDate } from "./src/utils/checkers/isCorrectDate.js";
-import { saveEventToLocalStorage } from "./src/utils/updaters/saveEventToLocalStorage.js";
+import { saveEventToStorage } from "./src/utils/updaters/saveEventToStorage.js";
 
 const calendarInfo = {
 	stateDate: new Date(),
 	overviewDate: new Date(),
-	eventIds: getEventIds(),
+	// eventIds: getEventIds(),
+	events: getEvents(),
 };
 
 const menuBtn = document.querySelector(".menu-btn");
@@ -53,7 +55,7 @@ modal.onclick = e => e.stopPropagation();
 
 modalForm.addEventListener("submit", e => {
 	e.preventDefault();
-	saveEventToLocalStorage(createEventObject(calendarInfo));
+	saveEventToStorage(calendarInfo, createEventObject());
 	modal.classList.toggle("non-displayed");
 	updateCalendar(calendarInfo);
 	modalForm.reset();

@@ -3,7 +3,7 @@ import { eventLogic } from "./eventLogic.js";
 import { getEventHeight } from "../getters/getEventHeight.js";
 import { getEventStartPos } from "../getters/getEventStartPos.js";
 
-export function createEvent(eventObj) {
+export function createEvent(eventObj, calendarInfo) {
 	let { eventId, eventTitle, startDateTxt, endDateTxt } = eventObj;
 	const startDate = new Date(startDateTxt);
 	const endDate = new Date(endDateTxt);
@@ -30,7 +30,7 @@ export function createEvent(eventObj) {
 	eventElement.append(titleElement, timeElement);
 
 	eventElement.addEventListener("click", e => {
-		eventLogic(e.currentTarget, eventObj);
+		eventLogic(e.currentTarget, eventObj, calendarInfo);
 		e.stopPropagation();
 	});
 

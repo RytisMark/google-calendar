@@ -2,15 +2,14 @@ import { renderEvent } from "./renderEvent.js";
 import { isSameWeek } from "../checkers/isSameWeek.js";
 
 export function renderAll(calendarInfo) {
-	const currDate = calendarInfo.stateDate;
+	const { stateDate, events } = calendarInfo;
 
-	if (localStorage.length === 0) return;
-	for (let i = 1; i <= localStorage.length; i++) {
-		const eventInfo = JSON.parse(localStorage.getItem(i));
-		if (!eventInfo) continue;
-		const eventStartDate = new Date(eventInfo.startDateTxt);
-		if (isSameWeek(currDate, eventStartDate)) {
-			renderEvent(JSON.parse(localStorage.getItem(i)));
+	if (events.length === 0) return;
+	for (let i = 0; i < events.length; i++) {
+		const eventObj = events[i];
+		const eventStartDate = new Date(eventObj.startDateTxt);
+		if (isSameWeek(stateDate, eventStartDate)) {
+			renderEvent(eventObj, calendarInfo);
 		}
 	}
 }
