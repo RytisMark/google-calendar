@@ -1,10 +1,10 @@
 export function updateEventInputError(invalid) {
-	const endDateElm = document.querySelector(".end-date");
+	const endDateElem = document.querySelector(".end-date");
 
 	if (invalid) {
-		endDateElm.setCustomValidity("The end date can't be earlier than the start date!");
+		endDateElem.setCustomValidity("The end date can't be earlier than the start date!");
 	} else {
-		endDateElm.setCustomValidity("");
+		endDateElem.setCustomValidity("");
 	}
-	endDateElm.reportValidity();
+	endDateElem.reportValidity();
 }

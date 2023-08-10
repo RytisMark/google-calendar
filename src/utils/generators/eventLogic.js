@@ -1,38 +1,34 @@
-import { getEventTime } from "../getters/getEventTime.js";
 import { removeEventFromStorage } from "../updaters/removeEventFromStorage.js";
 
-export function eventLogic(eventElement, eventObj, calendarInfo) {
-	let { eventId, eventTitle, startDateTxt, endDateTxt, description } = eventObj;
-	const startDate = new Date(startDateTxt);
-	const endDate = new Date(endDateTxt);
-	const eventTime = getEventTime(startDate, endDate);
+export function eventLogic(eventElem, extEvent, calendarInfo) {
+	let { eventId, eventTitle, eventTime, description } = extEvent;
 
-	const eventDescModal = document.querySelector(".event-desc-modal");
+	const eventDescModalElem = document.querySelector(".event-desc-modal");
 	const trashBtn = document.querySelector(".trash-btn");
 	const closeBtn = document.querySelector(".desc-modal-btns > .close-btn");
-	const eventDescTitle = document.querySelector(".event-desc-title");
-	const eventDescTime = document.querySelector(".event-desc-time");
-	const eventDesc = document.querySelector(".event-desc");
+	const eventDescTitleElem = document.querySelector(".event-desc-title");
+	const eventDescTimeElem = document.querySelector(".event-desc-time");
+	const eventDescElem = document.querySelector(".event-desc");
 
-	eventDescTitle.textContent = eventTitle;
-	eventDescTime.textContent = eventTime;
-	eventDesc.textContent = description;
+	eventDescTitleElem.textContent = eventTitle;
+	eventDescTimeElem.textContent = eventTime;
+	eventDescElem.textContent = description;
 
-	if (eventDescModal.getAttribute("data-event-id") === eventElement.getAttribute("data-event-id")) {
-		eventDescModal.classList.toggle("non-displayed");
+	if (eventDescModalElem.getAttribute("data-event-id") === eventElem.getAttribute("data-event-id")) {
+		eventDescModalElem.classList.toggle("non-displayed");
 	} else {
-		eventDescModal.classList.remove("non-displayed");
+		eventDescModalElem.classList.remove("non-displayed");
 	}
 
-	eventDescModal.setAttribute("data-event-id", eventId);
+	eventDescModalElem.setAttribute("data-event-id", eventId);
 
 	trashBtn.onclick = () => {
-		eventElement.parentNode.removeChild(eventElement);
+		eventElem.parentNode.removeChild(eventElem);
 		removeEventFromStorage(eventId, calendarInfo);
-		eventDesc.classList.add("non-displayed");
+		eventDescElem.classList.add("non-displayed");
 	};
 
 	closeBtn.onclick = () => {
-		eventDescModal.classList.add("non-displayed");
+		eventDescModalElem.classList.add("non-displayed");
 	};
 }

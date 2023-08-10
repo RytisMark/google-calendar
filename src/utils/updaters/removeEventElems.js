@@ -1,7 +1,7 @@
 export function removeEventElems() {
-	const eventElms = document.getElementsByClassName("event");
-	while (eventElms.length > 0) {
-		const event = eventElms[0];
-		event.parentNode.removeChild(event);
+	const eventElems = document.getElementsByClassName("event");
+	while (eventElems.length > 0) {
+		const eventElem = eventElems[0];
+		eventElem.parentNode.removeChild(eventElem);
 	}
 }

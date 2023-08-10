@@ -2,10 +2,11 @@ import { getDateNthDaysAway } from "../getters/getDateNthDaysAway.js";
 import { getMonthName } from "../getters/getMonthName.js";
 
 export function updateMonthAndYear(calendarInfo) {
-	const stateDate = calendarInfo.stateDate;
-	const dayOfTheWeek = stateDate.getDay() || 7;
-	const tempDateMon = getDateNthDaysAway(stateDate, 1 - dayOfTheWeek);
-	const tempDateSun = getDateNthDaysAway(stateDate, 7 - dayOfTheWeek);
+	const { stateDate } = calendarInfo;
+
+	const currDayOfTheWeek = stateDate.getDay() || 7;
+	const tempDateMon = getDateNthDaysAway(stateDate, 1 - currDayOfTheWeek);
+	const tempDateSun = getDateNthDaysAway(stateDate, 7 - currDayOfTheWeek);
 	const monYear = tempDateMon.getFullYear();
 	const sunYear = tempDateSun.getFullYear();
 	const monDayOfMonth = tempDateMon.getDate();

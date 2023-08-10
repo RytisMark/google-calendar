@@ -378,8 +378,6 @@ body {
 }
 
 .table-cell {
-	/* display: flex; */
-	/* gap: 1px; */
 	border-top: 1px solid var(--misc-color);
 	border-left: 1px solid var(--misc-color);
 	min-height: var(--table-cell-height);
@@ -387,7 +385,6 @@ body {
 }
 
 .event {
-	/* flex: 1; */
 	position: relative;
 	z-index: 1;
 	min-width: calc(var(--table-cell-width) - 15px);

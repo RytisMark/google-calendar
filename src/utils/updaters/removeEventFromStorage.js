@@ -1,13 +1,15 @@
-export function removeEventFromStorage(eventId, calendarInfo) {
-	let eventsArr = JSON.parse(localStorage.getItem("events"));
+import { getEvents } from "../getters/getEvents.js";
+import { getExtEvents } from "../getters/getExtEvents.js";
 
-	for (let i = 0; i < eventsArr.length; i++) {
-		const event = eventsArr[i];
+export function removeEventFromStorage(eventId, calendarInfo) {
+	let events = getEvents();
+
+	for (let i = 0; i < events.length; i++) {
+		const event = events[i];
 		if (event.eventId === eventId) {
-			eventsArr.splice(i, 1);
-			calendarInfo.events = eventsArr;
-			eventsArr = JSON.stringify(eventsArr);
-			localStorage.setItem("events", eventsArr);
+			events.splice(i, 1);
+			localStorage.setItem("events", JSON.stringify(events));
+			calendarInfo.extEvents = getExtEvents(events);
 			break;
 		}
 	}
