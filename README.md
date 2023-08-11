@@ -2,7 +2,7 @@
 
 To run this project on your machine locally, first run
 ```
-npm install -g http-server
+npm install -g live-server
 ```
 to install the live-server package globally, and then run
 ```
