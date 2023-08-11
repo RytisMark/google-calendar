@@ -5,6 +5,5 @@ export function saveEventToStorage(event, extEvent, calendarInfo) {
 	extEvents.push(extEvent);
 
 	const events = getEvents();
-	events.push(event);
-	localStorage.setItem("events", JSON.stringify(events));
+	localStorage.setItem("events", JSON.stringify([...events, event]));
 }

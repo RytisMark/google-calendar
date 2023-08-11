@@ -1,11 +1,11 @@
-import { getDateNthDaysAway } from "../getters/getDateNthDaysAway.js";
+import { getDateNthDaysFromCurrent } from "../getters/getDateNthDaysFromCurrent.js";
 
-export function isSameWeek(firstDate, secndDate) {
+export function isSameWeek(firstDate, secondDate) {
 	const dayOfTheWeekFirstDate = firstDate.getDay() || 7;
-	const dayOfTheWeekSecndDate = secndDate.getDay() || 7;
+	const dayOfTheWeekSecondDate = secondDate.getDay() || 7;
 
-	const firstDateMonTime = getDateNthDaysAway(firstDate, 1 - dayOfTheWeekFirstDate).getTime();
-	const secndDateMonTime = getDateNthDaysAway(secndDate, 1 - dayOfTheWeekSecndDate).getTime();
+	const firstDateMonTime = getDateNthDaysFromCurrent(firstDate, 1 - dayOfTheWeekFirstDate).getTime();
+	const secondDateMonTime = getDateNthDaysFromCurrent(secondDate, 1 - dayOfTheWeekSecondDate).getTime();
 
-	return firstDateMonTime === secndDateMonTime;
+	return firstDateMonTime === secondDateMonTime;
 }

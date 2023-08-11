@@ -5,7 +5,8 @@ export function createTable(rows, cols) {
 		weekViewTable.appendChild(tableCol).className = "table-column";
 		for (let row = 0; row < rows; row++) {
 			const tableCell = document.createElement("div");
-			tableCol.appendChild(tableCell).className = "table-cell";
+			tableCell.className = "table-cell";
+			tableCol.appendChild(tableCell);
 		}
 	}
 }

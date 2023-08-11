@@ -5,7 +5,7 @@ import { getEvents } from "./src/utils/getters/getEvents.js";
 import { getExtEvents } from "./src/utils/getters/getExtEvents.js";
 import { updateCalendar } from "./src/utils/updaters/updateCalendar.js";
 import { updateMiniCalendar } from "./src/utils/updaters/updateMiniCalendar.js";
-import { updateEventInputError } from "./src/utils/updaters/updateEventInputError.js";
+import { updateEventEndDateInputError } from "./src/utils/updaters/updateEventEndDateInputError.js";
 import { isCorrectDate } from "./src/utils/checkers/isCorrectDate.js";
 import { saveEventToStorage } from "./src/utils/updaters/saveEventToStorage.js";
 import { renderEvent } from "./src/utils/updaters/renderEvent.js";
@@ -27,9 +27,9 @@ const createEventBtn = document.querySelector(".create-event-btn");
 const modalElem = document.querySelector(".modal");
 const modalFormElem = document.querySelector(".modal-form");
 const eventTitleElem = document.querySelector(".event-title");
-const closeBtn = document.querySelector(".modal-form > .close-btn");
-const cancelBtn = document.querySelector(".cancel-btn");
-const saveBtn = document.querySelector(".save-btn");
+const closeBtn = document.querySelector(".modal-form > .close");
+const cancelBtn = document.querySelector(".cancel");
+const saveBtn = document.querySelector(".save");
 const eventDescModalElem = document.querySelector(".event-desc-modal");
 
 document.addEventListener("click", () => {
@@ -72,7 +72,7 @@ cancelBtn.onclick = () => {
 	modalFormElem.reset();
 };
 
-saveBtn.onclick = () => updateEventInputError(isCorrectDate());
+saveBtn.onclick = () => updateEventEndDateInputError(isCorrectDate());
 
 eventDescModalElem.addEventListener("click", e => {
 	e.stopPropagation();

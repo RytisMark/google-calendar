@@ -42,7 +42,7 @@
 	box-shadow: 1px 1px 10px var(--primary-misc-color);
 }
 
-.close-btn {
+.close.round-btn {
 	align-self: flex-end;
 	width: 30px;
 	height: 30px;
@@ -70,24 +70,29 @@
 	resize: none;
 }
 
-:where(.event-title, .start-date, .end-date, .description) {
+.event-title,
+.start-date,
+.end-date,
+.description {
 	border: 0px;
 	border-bottom: 2px solid var(--primary-misc-color);
 }
 
-:where(.event-title, .start-date, .end-date, .description):focus {
+.event-title:focus,
+.start-date:focus,
+.end-date:focus,
+.description:focus {
 	outline: 0px;
 	border-bottom: 2px solid var(--secondary-misc-color);
 }
 
-.submission-btns {
+.submission-container {
 	display: flex;
 	gap: 10px;
 	justify-content: flex-end;
 }
 
-.save-btn,
-.cancel-btn {
+.square-btn {
 	width: 75px;
 	height: 30px;
 	margin-top: 30px;
@@ -95,31 +100,37 @@
 	color: white;
 }
 
-.save-btn {
+.save {
 	background-color: var(--secondary-misc-color);
 }
 
-.save-btn:hover {
+.save:hover {
 	background-color: var(--secondary-btn-hover-color);
 }
 
-.save-btn:hover:active {
+.save:hover:active {
 	background-color: var(--secondary-btn-active-color);
 }
 
-.cancel-btn {
+.cancel {
 	background-color: var(--primary-misc-color);
 }
 
-:where(.close-btn, .cancel-btn):hover {
+.close:hover,
+.cancel:hover,
+.trash:hover {
 	background-color: var(--primary-btn-hover-color);
 }
 
-:where(.close-btn, .cancel-btn):hover:active {
+.close:hover:active,
+.cancel:hover:active,
+.trash:hover:active {
 	background-color: var(--primary-btn-active-color);
 }
 
-:where(.close-btn, .cancel-btn, .save-btn):hover {
+.close:hover,
+.cancel:hover,
+.save:hover {
 	cursor: pointer;
 }
 
@@ -131,13 +142,13 @@
 	box-shadow: 1px 1px 10px var(--primary-misc-color);
 }
 
-.desc-modal-btns {
+.desc-modal-controls-container {
 	display: flex;
 	justify-content: flex-end;
 	height: 30px;
 }
 
-.trash-btn {
+.trash {
 	width: 30px;
 	height: 30px;
 	border: none;
@@ -147,15 +158,7 @@
 	cursor: pointer;
 }
 
-.trash-btn:hover {
-	background-color: var(--primary-btn-hover-color);
-}
-
-.trash-btn:hover:active {
-	background-color: var(--primary-btn-active-color);
-}
-
-.desc-modal-btns > .close-btn {
+.desc-modal-controls-container > .close {
 	margin-bottom: 0px;
 }
 

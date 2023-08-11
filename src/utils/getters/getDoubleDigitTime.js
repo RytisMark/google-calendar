@@ -1,3 +1,1 @@
-export function getDoubleDigitTime(time) {
-	return (time < 10 ? "0" : "") + time;
-}
+export const getDoubleDigitTime = time => time.toString().padStart(2, "0");

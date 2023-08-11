@@ -13,13 +13,13 @@ export function createEventElem(extEvent, calendarInfo) {
 	eventElem.style.height = `${getEventHeight(tableCell, startDate, endDate)}px`;
 	eventElem.style.marginTop = `${getEventStartPos(tableCell, minutes)}px`;
 
-	const titleElement = document.createElement("span");
-	const timeElement = document.createElement("span");
-	titleElement.textContent = `${eventTitle}, `;
-	titleElement.style.fontWeight = "bold";
-	timeElement.textContent = eventTime;
+	const titleElem = document.createElement("span");
+	const timeElem = document.createElement("span");
+	titleElem.textContent = `${eventTitle}, `;
+	titleElem.style.fontWeight = "bold";
+	timeElem.textContent = eventTime;
 
-	eventElem.append(titleElement, timeElement);
+	eventElem.append(titleElem, timeElem);
 
 	eventElem.addEventListener("click", e => {
 		eventLogic(e.currentTarget, extEvent, calendarInfo);

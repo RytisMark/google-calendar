@@ -105,12 +105,14 @@ body {
 	color: var(--primary-color);
 }
 
-:where(.nav-arrow, .nav-arrow-small):hover {
+.nav-arrow:hover,
+.nav-arrow-small:hover {
 	background-color: var(--primary-btn-hover-color);
 	cursor: pointer;
 }
 
-:where(.nav-arrow, .nav-arrow-small):hover:active {
+.nav-arrow:hover:active,
+.nav-arrow-small:hover:active {
 	background-color: var(--primary-btn-active-color);
 }
 

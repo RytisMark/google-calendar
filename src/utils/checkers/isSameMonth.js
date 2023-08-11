@@ -1,3 +1,3 @@
-export function isSameMonth(firstDate, secndDate) {
-	return firstDate.getMonth() === secndDate.getMonth();
+export function isSameMonth(firstDate, secondDate) {
+	return firstDate.getMonth() === secondDate.getMonth();
 }

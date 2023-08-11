@@ -1,5 +1,5 @@
 import { isSameDay } from "../checkers/isSameDay.js";
-import { getDateNthDaysAway } from "../getters/getDateNthDaysAway.js";
+import { getDateNthDaysFromCurrent } from "../getters/getDateNthDaysFromCurrent.js";
 
 export function updateWeekdays(calendarInfo) {
 	const { stateDate } = calendarInfo;
@@ -12,7 +12,7 @@ export function updateWeekdays(calendarInfo) {
 	for (let day = 1; day <= 7; day++) {
 		const weekday = weekdays.querySelector(`:nth-child(${day} of .weekday)`).querySelector(".day-of-month");
 		const weekdayName = weekdays.querySelector(`:nth-child(${day} of .weekday)`).querySelector(".day-of-week");
-		tempDate = getDateNthDaysAway(stateDate, day - currDayOfTheWeek);
+		tempDate = getDateNthDaysFromCurrent(stateDate, day - currDayOfTheWeek);
 		weekday.textContent = tempDate.getDate();
 
 		if (isSameDay(tempDate, today)) {

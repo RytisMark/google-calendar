@@ -4,8 +4,8 @@ export function eventLogic(eventElem, extEvent, calendarInfo) {
 	let { eventId, eventTitle, eventTime, description } = extEvent;
 
 	const eventDescModalElem = document.querySelector(".event-desc-modal");
-	const trashBtn = document.querySelector(".trash-btn");
-	const closeBtn = document.querySelector(".desc-modal-btns > .close-btn");
+	const trashBtn = document.querySelector(".trash");
+	const closeBtn = document.querySelector(".desc-modal-controls-container > .close");
 	const eventDescTitleElem = document.querySelector(".event-desc-title");
 	const eventDescTimeElem = document.querySelector(".event-desc-time");
 	const eventDescElem = document.querySelector(".event-desc");
@@ -23,9 +23,9 @@ export function eventLogic(eventElem, extEvent, calendarInfo) {
 	eventDescModalElem.setAttribute("data-event-id", eventId);
 
 	trashBtn.onclick = () => {
-		eventElem.parentNode.removeChild(eventElem);
+		eventDescModalElem.classList.add("non-displayed");
+		eventElem.remove();
 		removeEventFromStorage(eventId, calendarInfo);
-		eventDescElem.classList.add("non-displayed");
 	};
 
 	closeBtn.onclick = () => {

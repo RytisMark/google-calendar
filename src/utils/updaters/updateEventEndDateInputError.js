@@ -1,4 +1,4 @@
-export function updateEventInputError(invalid) {
+export function updateEventEndDateInputError(invalid) {
 	const endDateElem = document.querySelector(".end-date");
 
 	if (invalid) {
