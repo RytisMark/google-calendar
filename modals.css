@@ -1,0 +1,178 @@
+:root {
+	--primary-misc-color: #bbb;
+	--primary-btn-hover-color: #ccc;
+	--primary-btn-active-color: #aaa;
+
+	--secondary-misc-color: rgb(26, 115, 232);
+	--secondary-btn-hover-color: rgb(54, 130, 232);
+	--secondary-btn-active-color: rgb(19, 95, 232);
+}
+
+/* Event creation modal */
+
+.modal,
+.event-desc-modal {
+	position: fixed;
+	z-index: 2;
+	top: 25%;
+	left: 50%;
+	background-color: white;
+}
+
+.modal {
+	transform: translate(-50%, 0);
+}
+
+.modal,
+.modal-form,
+.event-desc-modal {
+	border-radius: 10px;
+}
+
+.start-date-text,
+.end-date-text {
+	font-size: 14px;
+}
+
+.modal-form {
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+	padding: 20px 40px 40px;
+	box-shadow: 1px 1px 10px var(--primary-misc-color);
+}
+
+.close.round-btn {
+	align-self: flex-end;
+	width: 30px;
+	height: 30px;
+	border: none;
+	border-radius: 100%;
+	margin-bottom: 20px;
+	background-color: white;
+}
+
+.event-title {
+	font-size: 22px;
+	margin-bottom: 32px;
+}
+
+.start-date,
+.end-date {
+	color: #555;
+	margin-top: 2px;
+	margin-bottom: 30px;
+}
+
+.description {
+	font-size: 14px;
+	max-width: 420px;
+	resize: none;
+}
+
+.event-title,
+.start-date,
+.end-date,
+.description {
+	border: 0px;
+	border-bottom: 2px solid var(--primary-misc-color);
+}
+
+.event-title:focus,
+.start-date:focus,
+.end-date:focus,
+.description:focus {
+	outline: 0px;
+	border-bottom: 2px solid var(--secondary-misc-color);
+}
+
+.submission-container {
+	display: flex;
+	gap: 10px;
+	justify-content: flex-end;
+}
+
+.square-btn {
+	width: 75px;
+	height: 30px;
+	margin-top: 30px;
+	border-radius: 5px;
+	color: white;
+}
+
+.save {
+	background-color: var(--secondary-misc-color);
+}
+
+.save:hover {
+	background-color: var(--secondary-btn-hover-color);
+}
+
+.save:hover:active {
+	background-color: var(--secondary-btn-active-color);
+}
+
+.cancel {
+	background-color: var(--primary-misc-color);
+}
+
+.close:hover,
+.cancel:hover,
+.trash:hover {
+	background-color: var(--primary-btn-hover-color);
+}
+
+.close:hover:active,
+.cancel:hover:active,
+.trash:hover:active {
+	background-color: var(--primary-btn-active-color);
+}
+
+.close:hover,
+.cancel:hover,
+.save:hover {
+	cursor: pointer;
+}
+
+/* Event description modal */
+.event-desc-modal {
+	transform: translate(75%, -100%);
+	width: 500px;
+	padding: 20px 40px 40px;
+	box-shadow: 1px 1px 10px var(--primary-misc-color);
+}
+
+.desc-modal-controls-container {
+	display: flex;
+	justify-content: flex-end;
+	height: 30px;
+}
+
+.trash {
+	width: 30px;
+	height: 30px;
+	border: none;
+	border-radius: 100%;
+	margin-bottom: 20px;
+	background-color: white;
+	cursor: pointer;
+}
+
+.desc-modal-controls-container > .close {
+	margin-bottom: 0px;
+}
+
+.event-desc-title {
+	font-weight: 500;
+	font-size: 22px;
+}
+
+.event-desc-time {
+	font-size: 14px;
+}
+
+.event-desc {
+	font-size: 14px;
+	margin-top: 20px;
+	color: var(--primary-misc-color);
+}
