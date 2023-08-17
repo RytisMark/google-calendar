@@ -1,0 +1,15 @@
+{
+	"name": "google-calendar",
+	"version": "1.0.0",
+	"description": "To run this project on your machine locally, first run ``` npm install ``` to install the required dependencies, and then run ``` npm start ``` inside the directory where index.html resides.",
+	"main": "index.js",
+	"scripts": {
+		"start": "concurrently \"tsc --watch\"  \"live-server\""
+	},
+	"author": "RytisMark",
+	"license": "ISC",
+	"dependencies": {
+		"concurrently": "^8.2.0",
+		"live-server": "^1.2.2"
+	}
+}
