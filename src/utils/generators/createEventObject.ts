@@ -1,7 +1,7 @@
 import { generateEventId } from "./generateEventId.js";
 import { Event } from "../../types.js";
 
-export function createEventObject() {
+export function createEventObject(): Event {
 	const eventTitle = (document.querySelector(".event-title") as HTMLInputElement).value;
 	const startDateJson = (document.querySelector(".start-date") as HTMLInputElement).value;
 	const endHourTxt = (document.querySelector(".end-date") as HTMLInputElement).value;
@@ -14,5 +14,5 @@ export function createEventObject() {
 		startDateJson,
 		endDateJson,
 		description,
-	} as Event;
+	};
 }

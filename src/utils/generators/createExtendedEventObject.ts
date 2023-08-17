@@ -12,5 +12,5 @@ export function createExtendedEventObject(event: Event): ExtendedEvent {
 		eventTime: getEventTime(startDate, endDate),
 		hours: startDate.getHours(),
 		minutes: startDate.getMinutes(),
-	} as ExtendedEvent;
+	};
 }
