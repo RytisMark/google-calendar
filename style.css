@@ -16,6 +16,7 @@ body {
 :root {
 	--table-cell-width: 81px;
 	--table-cell-height: 48px;
+	--table-cell-padding-right: 10px;
 	--outer-border-offset: -1px;
 
 	--primary-color: #444;
@@ -320,7 +321,7 @@ body {
 	display: flex;
 	height: 18px;
 	margin-left: 5px;
-	min-width: calc(var(--table-cell-width) * 7);
+	min-width: calc((var(--table-cell-width) + var(--table-cell-padding-right)) * 7);
 }
 
 .outer-border-cell-top {
@@ -377,20 +378,24 @@ body {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
+	max-width: calc(100% / 7);
 }
 
 .table-cell {
+	display: flex;
+	position: relative;
 	border-top: 1px solid var(--misc-color);
 	border-left: 1px solid var(--misc-color);
 	min-height: var(--table-cell-height);
 	min-width: var(--table-cell-width);
+	/* padding-right: var(--table-cell-padding-right); */
 }
 
 .event {
-	position: relative;
-	z-index: 1;
-	min-width: calc(var(--table-cell-width) - 15px);
+	position: absolute;
 	max-width: calc(100% - 15px);
+	z-index: 1;
+	min-height: 22px;
 	border-radius: 5px;
 	border: 1px solid white;
 	overflow: hidden;
