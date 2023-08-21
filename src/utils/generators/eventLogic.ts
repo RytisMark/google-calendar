@@ -1,5 +1,6 @@
 import { CalendarInfo, ExtendedEvent } from "../../types.js";
 import { removeEventFromStorage } from "../updaters/removeEventFromStorage.js";
+import { updateEventElementsStyle } from "../updaters/updateEventElementsStyle.js";
 
 export function eventLogic(eventElem: HTMLDivElement, extEvent: ExtendedEvent, calendarInfo: CalendarInfo) {
 	let { eventId, eventTitle, eventTime, description } = extEvent;
@@ -27,6 +28,7 @@ export function eventLogic(eventElem: HTMLDivElement, extEvent: ExtendedEvent, c
 		eventDescModalElem.classList.add("non-displayed");
 		eventElem.remove();
 		removeEventFromStorage(eventId, calendarInfo);
+		updateEventElementsStyle(extEvent, calendarInfo);
 	};
 
 	closeBtn.onclick = () => {

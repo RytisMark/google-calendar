@@ -16,7 +16,7 @@ body {
 :root {
 	--table-cell-width: 81px;
 	--table-cell-height: 48px;
-	--table-cell-padding-right: 10px;
+	--table-cell-padding-right: 15px;
 	--outer-border-offset: -1px;
 
 	--primary-color: #444;
@@ -388,12 +388,11 @@ body {
 	border-left: 1px solid var(--misc-color);
 	min-height: var(--table-cell-height);
 	min-width: var(--table-cell-width);
-	/* padding-right: var(--table-cell-padding-right); */
 }
 
 .event {
 	position: absolute;
-	max-width: calc(100% - 15px);
+	max-width: calc(100% - var(--table-cell-padding-right));
 	z-index: 1;
 	min-height: 22px;
 	border-radius: 5px;
