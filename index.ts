@@ -10,6 +10,7 @@ import { isCorrectDate } from "./src/utils/checkers/isCorrectDate.js";
 import { saveEventToStorage } from "./src/utils/updaters/saveEventToStorage.js";
 import { renderEvent } from "./src/utils/updaters/renderEvent.js";
 import { CalendarInfo } from "./src/types.js";
+import { updateAllEventElementsStyles } from "./src/utils/updaters/updateAllEventElementsStyles.js";
 
 const calendarInfo: CalendarInfo = {
 	stateDate: new Date(),
@@ -57,9 +58,11 @@ modalFormElem.addEventListener("submit", e => {
 	e.preventDefault();
 	const event = createEventObject();
 	const extEvent = createExtendedEventObject(event);
-	saveEventToStorage(event, extEvent, calendarInfo);
+	const extEvents = calendarInfo.extEvents;
+	saveEventToStorage(event, extEvent, extEvents);
 	modalElem.classList.toggle("non-displayed");
-	renderEvent(extEvent, calendarInfo);
+	renderEvent(extEvent, extEvents);
+	updateAllEventElementsStyles(extEvent, extEvents);
 	modalFormElem.reset();
 });
 

@@ -13,7 +13,7 @@
 .modal,
 .event-desc-modal {
 	position: fixed;
-	z-index: 2;
+	z-index: 1000;
 	top: 25%;
 	left: 50%;
 	background-color: white;

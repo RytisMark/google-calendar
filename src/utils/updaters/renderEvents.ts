@@ -8,7 +8,7 @@ export function renderEvents(calendarInfo: CalendarInfo) {
 	extEvents.forEach(extEvent => {
 		const startDate = extEvent.startDate;
 		if (isSameWeek(stateDate, startDate)) {
-			renderEvent(extEvent, calendarInfo);
+			renderEvent(extEvent, extEvents);
 		}
 	});
 }
