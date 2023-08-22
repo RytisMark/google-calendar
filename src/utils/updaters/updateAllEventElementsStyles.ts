@@ -6,7 +6,7 @@ export function updateAllEventElementsStyles(extEvent: ExtendedEvent, extEvents:
 	const { startDate } = extEvent;
 	const filteredExtEvents = getFilteredExtEvents(startDate, extEvents);
 	filteredExtEvents.forEach(event => {
-		const eventElem = document.querySelector(`[data-event-id='${event.eventId}']`) as HTMLDivElement;
+		const eventElem = document.querySelector(`.event[data-event-id='${event.eventId}']`) as HTMLDivElement;
 		updateEventElementStyle(eventElem, event, extEvents);
 	});
 }
