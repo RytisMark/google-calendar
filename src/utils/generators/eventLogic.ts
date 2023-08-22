@@ -1,9 +1,9 @@
-import { CalendarInfo, ExtendedEvent } from "../../types.js";
+import { ExtendedEvent } from "../../types.js";
 import { removeEventFromStorage } from "../updaters/removeEventFromStorage.js";
-import { updateEventElementsStyle } from "../updaters/updateEventElementsStyle.js";
+import { updateAllEventElementsStyles } from "../updaters/updateAllEventElementsStyles.js";
 
-export function eventLogic(eventElem: HTMLDivElement, extEvent: ExtendedEvent, calendarInfo: CalendarInfo) {
-	let { eventId, eventTitle, eventTime, description } = extEvent;
+export function eventLogic(eventElem: HTMLDivElement, extEvent: ExtendedEvent, extEvents: ExtendedEvent[]) {
+	const { eventId, eventTitle, eventTime, description } = extEvent;
 
 	const eventDescModalElem = document.querySelector(".event-desc-modal") as HTMLDivElement;
 	const trashBtn = document.querySelector(".trash") as HTMLButtonElement;
@@ -27,8 +27,8 @@ export function eventLogic(eventElem: HTMLDivElement, extEvent: ExtendedEvent, c
 	trashBtn.onclick = () => {
 		eventDescModalElem.classList.add("non-displayed");
 		eventElem.remove();
-		removeEventFromStorage(eventId, calendarInfo);
-		updateEventElementsStyle(extEvent, calendarInfo);
+		removeEventFromStorage(eventId, extEvents);
+		updateAllEventElementsStyles(extEvent, extEvents);
 	};
 
 	closeBtn.onclick = () => {

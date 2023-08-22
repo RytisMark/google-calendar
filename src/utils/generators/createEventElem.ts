@@ -1,14 +1,14 @@
-import { CalendarInfo, ExtendedEvent } from "../../types.js";
+import { ExtendedEvent } from "../../types.js";
 import { eventLogic } from "./eventLogic.js";
 import { updateEventElementStyle } from "../updaters/updateEventElementStyle.js";
 
-export function createEventElem(extEvent: ExtendedEvent, calendarInfo: CalendarInfo) {
-	let { eventId, eventTitle, eventTime } = extEvent;
+export function createEventElem(extEvent: ExtendedEvent, extEvents: ExtendedEvent[]) {
+	const { eventId, eventTitle, eventTime } = extEvent;
 
 	const eventElem = document.createElement("div");
 	eventElem.classList.add("event");
 	eventElem.setAttribute("data-event-id", eventId);
-	updateEventElementStyle(eventElem, extEvent, calendarInfo);
+	updateEventElementStyle(eventElem, extEvent, extEvents);
 
 	const titleElem = document.createElement("span");
 	const timeElem = document.createElement("span");
@@ -19,7 +19,7 @@ export function createEventElem(extEvent: ExtendedEvent, calendarInfo: CalendarI
 	eventElem.append(titleElem, timeElem);
 
 	eventElem.addEventListener("click", e => {
-		eventLogic(eventElem, extEvent, calendarInfo);
+		eventLogic(eventElem, extEvent, extEvents);
 		e.stopPropagation();
 	});
 

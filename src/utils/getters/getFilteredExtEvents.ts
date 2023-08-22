@@ -1,7 +1,6 @@
-import { CalendarInfo, ExtendedEvent } from "../../types.js";
+import { ExtendedEvent } from "../../types.js";
 
-export function getFilteredExtEvents(filterStartDate: Date, calendarInfo: CalendarInfo): ExtendedEvent[] {
-	const { extEvents } = calendarInfo;
+export function getFilteredExtEvents(filterStartDate: Date, extEvents: ExtendedEvent[]): ExtendedEvent[] {
 	const filteredExtEvents = extEvents.filter(extEvent => {
 		const date1 = new Date(extEvent.startDate).setMinutes(0);
 		const date2 = new Date(filterStartDate).setMinutes(0);
