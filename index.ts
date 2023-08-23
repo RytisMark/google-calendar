@@ -60,9 +60,9 @@ modalFormElem.addEventListener("submit", e => {
 	const extEvent = createExtendedEventObject(event);
 	const extEvents = calendarInfo.extEvents;
 	saveEventToStorage(event, extEvent, extEvents);
-	modalElem.classList.toggle("non-displayed");
 	renderEvent(extEvent, extEvents);
 	updateAllEventElementsStyles(extEvent, extEvents);
+	modalElem.classList.toggle("non-displayed");
 	modalFormElem.reset();
 });
 
