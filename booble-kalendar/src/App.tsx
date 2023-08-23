@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
+import { Toolbar } from "./components/Toolbar/Toolbar";
+import { Calendar } from "./components/Calendar/Calendar";
+import { EventCreationModal } from "./components/EventCreationModal";
+import { EventDescriptionModal } from "./components/EventDescriptionModal";
+import { getEvents } from "./utils/getters/getEvents";
+import { getExtEvents } from "./utils/getters/getExtEvents";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+	const [overviewDate, setOverviewDate] = useState(new Date());
+	const [stateDate, setStateDate] = useState(new Date());
+	const [extEvents, setExtEvents] = useState(getExtEvents(getEvents()));
+	const [showMainMenu, setShowMainMenu] = useState(true);
+
+	const goToPrevWeekView = () => {
+		const tempDate = new Date();
+		setStateDate(new Date(tempDate.setDate(stateDate.getDate() - 7)));
+		setOverviewDate(stateDate);
+	};
+
+	const goToNextWeekView = () => {
+		// updateCalendar(calendarInfo);
+		const tempDate = new Date();
+		setStateDate(new Date(tempDate.setDate(stateDate.getDate() + 7)));
+		setOverviewDate(stateDate);
+	};
+
+	const goToPrevMonthView = () => {
+		const tempDate = new Date();
+		setOverviewDate(new Date(tempDate.setMonth(overviewDate.getMonth() - 1, 1)));
+	};
+
+	const goToNextMonthView = () => {
+		const tempDate = new Date();
+		setOverviewDate(new Date(tempDate.setMonth(overviewDate.getMonth() + 1, 1)));
+	};
+
+	const toggleMainMenu = () => setShowMainMenu(!showMainMenu);
+
+	const toolbarProps = { toggleMainMenu, goToPrevWeekView, goToNextWeekView };
+	const calendarProps = { showMainMenu, goToPrevMonthView, goToNextMonthView };
+
+	return (
+		<>
+			<Toolbar {...toolbarProps} />
+			<Calendar {...calendarProps} />
+			<EventCreationModal />
+			<EventDescriptionModal />
+		</>
+	);
 }
-
-export default App;
