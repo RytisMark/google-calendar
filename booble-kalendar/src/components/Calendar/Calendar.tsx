@@ -1,6 +1,8 @@
+import { CalendarProps } from "../../types";
+import { WeekViewTable } from "./WeekViewTable";
 import { MainMenu } from "./MainMenu";
 
-export function Calendar(props: { showMainMenu: boolean; goToPrevMonthView: Function; goToNextMonthView: Function }) {
+export function Calendar(props: CalendarProps) {
 	return (
 		<main className="calendar">
 			<MainMenu {...props} />
@@ -99,7 +101,7 @@ export function Calendar(props: { showMainMenu: boolean; goToPrevMonthView: Func
 						<div className="outer-border-cell-left" />
 						<div className="outer-border-cell-left invisible" />
 					</div>
-					<div className="week-view-table"></div>
+					<WeekViewTable rows={24} cols={7} />
 				</div>
 			</div>
 		</main>

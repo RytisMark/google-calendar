@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Toolbar } from "./components/Toolbar/Toolbar";
 import { Calendar } from "./components/Calendar/Calendar";
 import { EventCreationModal } from "./components/EventCreationModal";
@@ -36,10 +36,15 @@ export default function App() {
 		setOverviewDate(new Date(tempDate.setMonth(overviewDate.getMonth() + 1, 1)));
 	};
 
+	const goToToday = () => {
+		setStateDate(new Date());
+		setOverviewDate(new Date());
+	};
+
 	const toggleMainMenu = () => setShowMainMenu(!showMainMenu);
 
-	const toolbarProps = { toggleMainMenu, goToPrevWeekView, goToNextWeekView };
-	const calendarProps = { showMainMenu, goToPrevMonthView, goToNextMonthView };
+	const toolbarProps = { toggleMainMenu, goToPrevWeekView, goToNextWeekView, stateDate, goToToday };
+	const calendarProps = { showMainMenu, goToPrevMonthView, goToNextMonthView, overviewDate };
 
 	return (
 		<>

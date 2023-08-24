@@ -24,4 +24,13 @@ export interface ToolbarProps {
 	toggleMainMenu: Function;
 	goToPrevWeekView: Function;
 	goToNextWeekView: Function;
+	stateDate: Date;
+	goToToday: Function;
+}
+
+export interface CalendarProps {
+	showMainMenu: boolean;
+	goToPrevMonthView: Function;
+	goToNextMonthView: Function;
+	overviewDate: Date;
 }

@@ -1,15 +1,16 @@
+import { CalendarProps } from "../../types";
 import { DateDisplay } from "../DateDisplay";
 import { NavigationArrows } from "../NavigationArrows";
 import { OverviewMonthTable } from "./OverviewMonthTable";
 
-export function MainMenu(props: { showMainMenu: boolean; goToPrevMonthView: Function; goToNextMonthView: Function }) {
+export function MainMenu(props: CalendarProps) {
 	if (props.showMainMenu) {
 		return (
 			<aside className="main-menu">
 				<button className="create-event-btn">Create Event</button>
 				<section className="month-overview">
 					<header className="overview-header">
-						<DateDisplay selectedDate={new Date()} classList="overview-date" />
+						<DateDisplay selectedDate={props.overviewDate} classList="overview-date" />
 					</header>
 					<NavigationArrows classList="nav-arrow-small" goToPrevView={props.goToPrevMonthView} goToNextView={props.goToNextMonthView} />
 					<div className="overview-weekdays">

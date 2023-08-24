@@ -9,9 +9,11 @@ export function Toolbar(props: ToolbarProps) {
 			<header className="toolbar">
 				<MainMenuButton toggleMainMenu={props.toggleMainMenu} />
 				<h1 className="calendar-name">Booble Kalendar</h1>
-				<button className="today-btn">Today</button>
+				<button className="today-btn" onClick={() => props.goToToday()}>
+					Today
+				</button>
 				<NavigationArrows classList="nav-arrow" goToPrevView={props.goToPrevWeekView} goToNextView={props.goToNextWeekView} />
-				<DateDisplay selectedDate={new Date()} classList={"today-date"} />
+				<DateDisplay selectedDate={props.stateDate} classList={"today-date"} />
 			</header>
 		</>
 	);
