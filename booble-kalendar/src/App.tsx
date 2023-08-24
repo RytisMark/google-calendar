@@ -1,4 +1,5 @@
 import "./App.css";
+import "./modals.css";
 import React, { useState, useEffect } from "react";
 import { Toolbar } from "./components/Toolbar/Toolbar";
 import { Calendar } from "./components/Calendar/Calendar";
@@ -12,45 +13,61 @@ export default function App() {
 	const [stateDate, setStateDate] = useState(new Date());
 	const [extEvents, setExtEvents] = useState(getExtEvents(getEvents()));
 	const [showMainMenu, setShowMainMenu] = useState(true);
+	const [showEventCreationModal, setShowEventCreationModal] = useState(false);
+	const [showEventDescriptionModal, setShowEventDescriptionModal] = useState(false);
 
-	const goToPrevWeekView = () => {
-		const tempDate = new Date();
-		setStateDate(new Date(tempDate.setDate(stateDate.getDate() - 7)));
-		setOverviewDate(stateDate);
-	};
-
-	const goToNextWeekView = () => {
-		// updateCalendar(calendarInfo);
-		const tempDate = new Date();
-		setStateDate(new Date(tempDate.setDate(stateDate.getDate() + 7)));
-		setOverviewDate(stateDate);
-	};
-
-	const goToPrevMonthView = () => {
-		const tempDate = new Date();
-		setOverviewDate(new Date(tempDate.setMonth(overviewDate.getMonth() - 1, 1)));
-	};
-
-	const goToNextMonthView = () => {
-		const tempDate = new Date();
-		setOverviewDate(new Date(tempDate.setMonth(overviewDate.getMonth() + 1, 1)));
-	};
+	const toggleMainMenu = () => setShowMainMenu(!showMainMenu);
+	const toggleEventCreationModal = () => setShowEventCreationModal(!showEventCreationModal);
 
 	const goToToday = () => {
 		setStateDate(new Date());
 		setOverviewDate(new Date());
 	};
 
-	const toggleMainMenu = () => setShowMainMenu(!showMainMenu);
+	const goToPrevWeekView = () => {
+		const newDate = new Date(new Date(stateDate).setDate(stateDate.getDate() - 7));
+		setStateDate(newDate);
+		setOverviewDate(newDate);
+	};
+
+	const goToNextWeekView = () => {
+		const newDate = new Date(new Date(stateDate).setDate(stateDate.getDate() + 7));
+		setStateDate(newDate);
+		setOverviewDate(newDate);
+	};
+
+	const goToPrevMonthView = () => {
+		setOverviewDate(new Date(overviewDate.getFullYear(), overviewDate.getMonth() - 1, 1));
+	};
+
+	const goToNextMonthView = () => {
+		setOverviewDate(new Date(overviewDate.getFullYear(), overviewDate.getMonth() + 1, 1));
+	};
+
+	const changeToSelectedDay = (selectedDate: Date) => {
+		setStateDate(selectedDate);
+		setOverviewDate(selectedDate);
+	};
 
 	const toolbarProps = { toggleMainMenu, goToPrevWeekView, goToNextWeekView, stateDate, goToToday };
-	const calendarProps = { showMainMenu, goToPrevMonthView, goToNextMonthView, overviewDate };
+	const calendarProps = {
+		showMainMenu,
+		goToPrevMonthView,
+		goToNextMonthView,
+		stateDate,
+		overviewDate,
+		changeToSelectedDay,
+		toggleEventCreationModal,
+	};
+	const eventCreationModalProps = {
+		showEventCreationModal,
+	};
 
 	return (
 		<>
 			<Toolbar {...toolbarProps} />
 			<Calendar {...calendarProps} />
-			<EventCreationModal />
+			<EventCreationModal {...eventCreationModalProps} />
 			<EventDescriptionModal />
 		</>
 	);

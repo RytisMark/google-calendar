@@ -1,48 +1,51 @@
-export function OverviewMonthTable() {
-	return (
-		<div className="overview-month-table">
-			<button>26</button>
-			<button>27</button>
-			<button>28</button>
-			<button>29</button>
-			<button>30</button>
-			<button>1</button>
-			<button>2</button>
-			<button>3</button>
-			<button>4</button>
-			<button>5</button>
-			<button>6</button>
-			<button>7</button>
-			<button>8</button>
-			<button>9</button>
-			<button>10</button>
-			<button>11</button>
-			<button>12</button>
-			<button>13</button>
-			<button>14</button>
-			<button>15</button>
-			<button>16</button>
-			<button>17</button>
-			<button>18</button>
-			<button>19</button>
-			<button>20</button>
-			<button>21</button>
-			<button>22</button>
-			<button>23</button>
-			<button>24</button>
-			<button>25</button>
-			<button>26</button>
-			<button>27</button>
-			<button>28</button>
-			<button>29</button>
-			<button>30</button>
-			<button>31</button>
-			<button>1</button>
-			<button>2</button>
-			<button>3</button>
-			<button>4</button>
-			<button>5</button>
-			<button>6</button>
-		</div>
-	);
+import { isSameDay } from "../../utils/checkers/isSameDay";
+import { isSameMonth } from "../../utils/checkers/isSameMonth";
+import { getDateWithNewDay } from "../../utils/getters/getDateWithNewDay";
+
+export function OverviewMonthTable({
+	stateDate,
+	overviewDate,
+	changeToSelectedDay,
+}: {
+	stateDate: Date;
+	overviewDate: Date;
+	changeToSelectedDay: Function;
+}) {
+	const today = new Date();
+	const weekDayOfFirstDayOfMonth = getDateWithNewDay(overviewDate, 1).getDay() || 7;
+
+	const tempDates = [];
+	for (let day = 1; day <= 42; day++) {
+		const tempDate = getDateWithNewDay(overviewDate, 1 + day - weekDayOfFirstDayOfMonth);
+		tempDates.push(tempDate);
+	}
+
+	const monthdays = tempDates.map((tempDate, index) => {
+		let classList = "";
+		if (!isSameMonth(tempDate, overviewDate)) {
+			classList += "other-month ";
+		} else {
+			classList.replace("other-month ", "");
+		}
+
+		if (isSameDay(tempDate, stateDate)) {
+			classList += "current-day ";
+		} else {
+			classList.replace("current-day ", "");
+		}
+
+		if (isSameDay(tempDate, today)) {
+			classList += "present-day ";
+		} else {
+			classList.replace("present-day ", "");
+		}
+
+		return (
+			<button key={index} className={classList} onClick={() => changeToSelectedDay(tempDate)}>
+				{tempDate.getDate().toString()}
+			</button>
+		);
+	});
+
+	return <div className="overview-month-table">{monthdays}</div>;
 }

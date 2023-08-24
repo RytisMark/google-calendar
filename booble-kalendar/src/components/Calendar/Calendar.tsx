@@ -1,6 +1,7 @@
 import { CalendarProps } from "../../types";
 import { WeekViewTable } from "./WeekViewTable";
 import { MainMenu } from "./MainMenu";
+import { Weekdays } from "./Weekdays";
 
 export function Calendar(props: CalendarProps) {
 	return (
@@ -8,36 +9,7 @@ export function Calendar(props: CalendarProps) {
 			<MainMenu {...props} />
 			<div className="week-view">
 				<header className="week-view-header">
-					<div className="weekdays">
-						<div className="weekday">
-							<span className="day-of-week">MON</span>
-							<span className="day-of-month">10</span>
-						</div>
-						<div className="weekday">
-							<span className="day-of-week">TUE</span>
-							<span className="day-of-month">11</span>
-						</div>
-						<div className="weekday">
-							<span className="day-of-week">WED</span>
-							<span className="day-of-month">12</span>
-						</div>
-						<div className="weekday">
-							<span className="day-of-week">THU</span>
-							<span className="day-of-month">13</span>
-						</div>
-						<div className="weekday">
-							<span className="day-of-week">FRI</span>
-							<span className="day-of-month">14</span>
-						</div>
-						<div className="weekday">
-							<span className="day-of-week">SAT</span>
-							<span className="day-of-month">15</span>
-						</div>
-						<div className="weekday">
-							<span className="day-of-week">SUN</span>
-							<span className="day-of-month">16</span>
-						</div>
-					</div>
+					<Weekdays stateDate={props.stateDate} />
 					<div className="outer-border-wrapper-top">
 						<div className="outer-border-cell-top" />
 						<div className="outer-border-cell-top" />

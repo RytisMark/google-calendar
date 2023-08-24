@@ -32,5 +32,8 @@ export interface CalendarProps {
 	showMainMenu: boolean;
 	goToPrevMonthView: Function;
 	goToNextMonthView: Function;
+	stateDate: Date;
 	overviewDate: Date;
+	changeToSelectedDay: Function;
+	toggleEventCreationModal: Function;
 }

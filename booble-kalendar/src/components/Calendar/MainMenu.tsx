@@ -7,7 +7,9 @@ export function MainMenu(props: CalendarProps) {
 	if (props.showMainMenu) {
 		return (
 			<aside className="main-menu">
-				<button className="create-event-btn">Create Event</button>
+				<button className="create-event-btn" onClick={() => props.toggleEventCreationModal()}>
+					Create Event
+				</button>
 				<section className="month-overview">
 					<header className="overview-header">
 						<DateDisplay selectedDate={props.overviewDate} classList="overview-date" />
@@ -22,7 +24,7 @@ export function MainMenu(props: CalendarProps) {
 						<span>S</span>
 						<span>S</span>
 					</div>
-					<OverviewMonthTable />
+					<OverviewMonthTable stateDate={props.stateDate} overviewDate={props.overviewDate} changeToSelectedDay={props.changeToSelectedDay} />
 				</section>
 			</aside>
 		);
