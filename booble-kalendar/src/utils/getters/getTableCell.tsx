@@ -1,4 +1,4 @@
-import { ExtendedEvent } from "../../types.js";
+import { ExtendedEvent } from "../../types";
 
 export function getTableCell(extEvent: ExtendedEvent): HTMLDivElement {
 	const { startDate, hours } = extEvent;

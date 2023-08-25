@@ -7,7 +7,13 @@ export function MainMenu(props: CalendarProps) {
 	if (props.showMainMenu) {
 		return (
 			<aside className="main-menu">
-				<button className="create-event-btn" onClick={() => props.toggleEventCreationModal()}>
+				<button
+					className="create-event-btn"
+					onClick={e => {
+						props.toggleEventCreationModal();
+						e.stopPropagation();
+					}}
+				>
 					Create Event
 				</button>
 				<section className="month-overview">

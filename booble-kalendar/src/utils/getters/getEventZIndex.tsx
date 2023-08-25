@@ -1,5 +1,5 @@
-import { ExtendedEvent } from "../../types.js";
-import { getFilteredExtEvents } from "./getFilteredExtEvents.js";
+import { ExtendedEvent } from "../../types";
+import { getFilteredExtEvents } from "./getFilteredExtEvents";
 
 export function getEventZIndex(eventElem: HTMLDivElement, startDate: Date, extEvents: ExtendedEvent[]): string {
 	const filteredExtEvents = getFilteredExtEvents(startDate, extEvents);

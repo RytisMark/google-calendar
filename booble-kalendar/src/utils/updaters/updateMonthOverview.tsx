@@ -1,8 +1,8 @@
-import { updateCalendar } from "./updateCalendar.js";
-import { getDateWithNewDay } from "../getters/getDateWithNewDay.js";
-import { isSameDay } from "../checkers/isSameDay.js";
-import { isSameMonth } from "../checkers/isSameMonth.js";
-import { CalendarInfo } from "../../types.js";
+import { updateCalendar } from "./updateCalendar";
+import { getDateWithNewDay } from "../getters/getDateWithNewDay";
+import { isSameDay } from "../checkers/isSameDay";
+import { isSameMonth } from "../checkers/isSameMonth";
+import { CalendarInfo } from "../../types";
 
 export function updateMonthOverview(calendarInfo: CalendarInfo) {
 	const { stateDate, overviewDate } = calendarInfo;

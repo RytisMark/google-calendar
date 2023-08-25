@@ -1,6 +1,6 @@
-import { ExtendedEvent } from "../../types.js";
-import { getFilteredExtEvents } from "../getters/getFilteredExtEvents.js";
-import { updateEventElementStyle } from "./updateEventElementStyle.js";
+import { ExtendedEvent } from "../../types";
+import { getFilteredExtEvents } from "../getters/getFilteredExtEvents";
+import { updateEventElementStyle } from "./updateEventElementStyle";
 
 export function updateAllEventElementsStyles(extEvent: ExtendedEvent, extEvents: ExtendedEvent[]) {
 	const { startDate } = extEvent;

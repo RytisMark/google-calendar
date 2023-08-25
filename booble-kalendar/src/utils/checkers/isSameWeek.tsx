@@ -1,4 +1,4 @@
-import { getDateNthDaysFromCurrent } from "../getters/getDateNthDaysFromCurrent.js";
+import { getDateNthDaysFromCurrent } from "../getters/getDateNthDaysFromCurrent";
 
 export function isSameWeek(firstDate: Date, secondDate: Date) {
 	const dayOfTheWeekFirstDate = firstDate.getDay() || 7;

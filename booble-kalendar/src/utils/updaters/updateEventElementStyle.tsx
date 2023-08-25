@@ -1,10 +1,10 @@
-import { ExtendedEvent } from "../../types.js";
-import { getTableCell } from "../getters/getTableCell.js";
-import { getEventTopPos } from "../getters/getEventTopPos.js";
-import { getEventLeftPos } from "../getters/getEventLeftPos.js";
-import { getEventHeight } from "../getters/getEventHeight.js";
-import { getEventWidth } from "../getters/getEventWidth.js";
-import { getEventZIndex } from "../getters/getEventZIndex.js";
+import { ExtendedEvent } from "../../types";
+import { getTableCell } from "../getters/getTableCell";
+import { getEventTopPos } from "../getters/getEventTopPos";
+import { getEventLeftPos } from "../getters/getEventLeftPos";
+import { getEventHeight } from "../getters/getEventHeight";
+import { getEventWidth } from "../getters/getEventWidth";
+import { getEventZIndex } from "../getters/getEventZIndex";
 
 export function updateEventElementStyle(eventElem: HTMLDivElement, extEvent: ExtendedEvent, extEvents: ExtendedEvent[]): void {
 	let { startDate, endDate, minutes } = extEvent;

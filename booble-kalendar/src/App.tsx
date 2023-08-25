@@ -7,6 +7,13 @@ import { EventCreationModal } from "./components/EventCreationModal";
 import { EventDescriptionModal } from "./components/EventDescriptionModal";
 import { getEvents } from "./utils/getters/getEvents";
 import { getExtEvents } from "./utils/getters/getExtEvents";
+import { createEventObject } from "./utils/generators/createEventObject";
+import { createExtendedEventObject } from "./utils/generators/createExtendedEventObject";
+import { saveEventToStorage } from "./utils/updaters/saveEventToStorage";
+import { renderEvent } from "./utils/updaters/renderEvent";
+import { updateAllEventElementsStyles } from "./utils/updaters/updateAllEventElementsStyles";
+import { updateEventEndDateInputError } from "./utils/updaters/updateEventEndDateInputError";
+import { isCorrectDate } from "./utils/checkers/isCorrectDate";
 
 export default function App() {
 	const [overviewDate, setOverviewDate] = useState(new Date());
@@ -15,9 +22,29 @@ export default function App() {
 	const [showMainMenu, setShowMainMenu] = useState(true);
 	const [showEventCreationModal, setShowEventCreationModal] = useState(false);
 	const [showEventDescriptionModal, setShowEventDescriptionModal] = useState(false);
+	const [currentChosenEventId, setCurrentChosenEventId] = useState("");
 
 	const toggleMainMenu = () => setShowMainMenu(!showMainMenu);
 	const toggleEventCreationModal = () => setShowEventCreationModal(!showEventCreationModal);
+	const toggleEventDescriptionModal = () => setShowEventDescriptionModal(!showEventDescriptionModal);
+	const changeCurrentChosenEventId = (eventId: string) => {
+		setCurrentChosenEventId(eventId);
+		toggleEventDescriptionModal();
+	};
+	const handleCreateEventClick = () => updateEventEndDateInputError(isCorrectDate());
+
+	const handleCreateEventSubmit = (eventObj: { eventTitle: string; startDateJson: string; endDateJson: string; description: string }) => {
+		// e.preventDefault();
+		const event = createEventObject(eventObj);
+		const extEvent = createExtendedEventObject(event);
+		console.log(extEvent, "aaaaaaaaaaaa");
+		// const extEvents = calendarInfo.extEvents;
+		saveEventToStorage(event, extEvent, setExtEvents);
+		// renderEvent(extEvent, setExtEvents); uztenka setExtEvents?
+		// updateAllEventElementsStyles(extEvent, extEvents);
+		toggleEventCreationModal();
+		// modalFormElem.reset();
+	};
 
 	const goToToday = () => {
 		setStateDate(new Date());
@@ -50,6 +77,7 @@ export default function App() {
 	};
 
 	const toolbarProps = { toggleMainMenu, goToPrevWeekView, goToNextWeekView, stateDate, goToToday };
+
 	const calendarProps = {
 		showMainMenu,
 		goToPrevMonthView,
@@ -58,9 +86,22 @@ export default function App() {
 		overviewDate,
 		changeToSelectedDay,
 		toggleEventCreationModal,
+		extEvents,
+		changeCurrentChosenEventId,
 	};
+
 	const eventCreationModalProps = {
 		showEventCreationModal,
+		handleCreateEventClick,
+		handleCreateEventSubmit,
+		toggleEventCreationModal,
+	};
+
+	const eventDescriptionModalProps = {
+		showEventDescriptionModal,
+		toggleEventDescriptionModal,
+		extEvents,
+		currentChosenEventId,
 	};
 
 	return (
@@ -68,7 +109,7 @@ export default function App() {
 			<Toolbar {...toolbarProps} />
 			<Calendar {...calendarProps} />
 			<EventCreationModal {...eventCreationModalProps} />
-			<EventDescriptionModal />
+			<EventDescriptionModal {...eventDescriptionModalProps} />
 		</>
 	);
 }

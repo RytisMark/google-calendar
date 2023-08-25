@@ -1,12 +1,11 @@
-import { updateMonthOverview } from "./updateMonthOverview.js";
-import { removeEventElements } from "./removeEventElements.js";
-import { renderEvents } from "./renderEvents.js";
-import { CalendarInfo } from "../../types.js";
+import { removeEventElements } from "./removeEventElements";
+import { renderEvents } from "./renderEvents";
+import { CalendarInfo } from "../../types";
 
 export function updateCalendar(calendarInfo: CalendarInfo) {
 	// updateWeekdays(calendarInfo);
 	// updateMonthAndYear(calendarInfo);
-	updateMonthOverview(calendarInfo);
-	removeEventElements();
-	renderEvents(calendarInfo);
+	// updateMonthOverview(calendarInfo);
+	// removeEventElements();
+	// renderEvents(calendarInfo);
 }

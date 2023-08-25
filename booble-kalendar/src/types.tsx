@@ -36,4 +36,6 @@ export interface CalendarProps {
 	overviewDate: Date;
 	changeToSelectedDay: Function;
 	toggleEventCreationModal: Function;
+	extEvents: ExtendedEvent[];
+	changeCurrentChosenEventId: Function;
 }

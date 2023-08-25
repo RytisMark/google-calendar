@@ -1,4 +1,4 @@
-import { ExtendedEvent } from "../../types.js";
+import { ExtendedEvent } from "../../types";
 
 export function getFilteredExtEvents(filterStartDate: Date, extEvents: ExtendedEvent[]): ExtendedEvent[] {
 	const filteredExtEvents = extEvents.filter(extEvent => {

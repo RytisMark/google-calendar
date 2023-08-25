@@ -1,6 +1,6 @@
-import { ExtendedEvent } from "../../types.js";
-import { getEventMaxWidth } from "./getEventMaxWidth.js";
-import { getFilteredExtEvents } from "./getFilteredExtEvents.js";
+import { ExtendedEvent } from "../../types";
+import { getEventMaxWidth } from "./getEventMaxWidth";
+import { getFilteredExtEvents } from "./getFilteredExtEvents";
 
 export function getEventLeftPos(eventElem: HTMLDivElement, startDate: Date, extEvents: ExtendedEvent[]): string {
 	const filteredExtEvents = getFilteredExtEvents(startDate, extEvents);

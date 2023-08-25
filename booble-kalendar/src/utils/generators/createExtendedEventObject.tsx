@@ -5,6 +5,8 @@ export function createExtendedEventObject(event: Event): ExtendedEvent {
 	const startDate = new Date(event.startDateJson);
 	const endDate = new Date(event.endDateJson);
 
+	console.log(event);
+
 	return {
 		...event,
 		startDate,
