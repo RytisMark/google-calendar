@@ -12,6 +12,6 @@ to install the required dependencies, and then run
 npm start
 ```
 
-inside the directory where index.html resides.
+inside the main (google-calendar) directory.
 
-This should open the project on http://localhost:8080/
+This should open the project on http://localhost:3000/
