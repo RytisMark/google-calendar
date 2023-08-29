@@ -1,6 +1,6 @@
-import { createExtendedEventObject } from "../generators/createExtendedEventObject.js";
-import { Event } from "../../types.js";
+import { createExtendedEventObject } from "../generators/createExtendedEventObject";
+import { Event } from "../../types";
 
 export function getExtEvents(events: Event[]) {
-	return events.map((event: Event) => createExtendedEventObject(event));
+  return events.map((event: Event) => createExtendedEventObject(event));
 }
