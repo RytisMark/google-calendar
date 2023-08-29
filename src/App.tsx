@@ -78,36 +78,36 @@ export default function App() {
 
 	return (
 		<>
-			<Toolbar {...{ toggleMainMenu, goToPrevWeekView, goToNextWeekView, stateDate, goToToday }} />
+			<Toolbar
+				toggleMainMenu={toggleMainMenu}
+				goToPrevWeekView={goToPrevWeekView}
+				goToNextWeekView={goToNextWeekView}
+				stateDate={stateDate}
+				goToToday={goToToday}
+			/>
 			<Calendar
-				{...{
-					showMainMenu,
-					goToPrevMonthView,
-					goToNextMonthView,
-					stateDate,
-					overviewDate,
-					changeToSelectedDay,
-					toggleEventCreationModal,
-					extEvents,
-					changeCurrentChosenEventId,
-				}}
+				showMainMenu={showMainMenu}
+				goToPrevMonthView={goToPrevMonthView}
+				goToNextMonthView={goToNextMonthView}
+				stateDate={stateDate}
+				overviewDate={overviewDate}
+				changeToSelectedDay={changeToSelectedDay}
+				toggleEventCreationModal={toggleEventCreationModal}
+				extEvents={extEvents}
+				changeCurrentChosenEventId={changeCurrentChosenEventId}
 			/>
 			<EventCreationModal
-				{...{
-					showEventCreationModal,
-					handleCreateEventClick,
-					handleCreateEventSubmit,
-					toggleEventCreationModal,
-				}}
+				showEventCreationModal={showEventCreationModal}
+				handleCreateEventClick={handleCreateEventClick}
+				handleCreateEventSubmit={handleCreateEventSubmit}
+				toggleEventCreationModal={toggleEventCreationModal}
 			/>
 			<EventDescriptionModal
-				{...{
-					showEventDescriptionModal,
-					toggleEventDescriptionModal,
-					extEvents,
-					currentChosenEventId,
-					handleDestroyEventClick,
-				}}
+				showEventDescriptionModal={showEventDescriptionModal}
+				toggleEventDescriptionModal={toggleEventDescriptionModal}
+				extEvents={extEvents}
+				currentChosenEventId={currentChosenEventId}
+				handleDestroyEventClick={handleDestroyEventClick}
 			/>
 		</>
 	);
