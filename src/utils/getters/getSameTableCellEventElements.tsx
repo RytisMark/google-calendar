@@ -7,10 +7,19 @@ export function getSameTableCellEventElements(
   columnIndex: number,
   cellIndex: number,
   stateDate: Date,
-  changeCurrentChosenEventId: (eventId: string) => void
+  changeCurrentChosenEventId: (eventId: string) => void,
 ) {
-  const filteredEvents = getSameTableCellEvents(stateDate, columnIndex, cellIndex, extEvents);
-  return filteredEvents.map(extEvent => (
-    <EventElement extEvent={extEvent} extEvents={extEvents} changeCurrentChosenEventId={changeCurrentChosenEventId} />
+  const filteredEvents = getSameTableCellEvents(
+    stateDate,
+    columnIndex,
+    cellIndex,
+    extEvents,
+  );
+  return filteredEvents.map((extEvent) => (
+    <EventElement
+      extEvent={extEvent}
+      extEvents={extEvents}
+      changeCurrentChosenEventId={changeCurrentChosenEventId}
+    />
   ));
 }

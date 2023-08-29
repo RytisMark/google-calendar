@@ -14,7 +14,7 @@ export function EventElement(props: EventElementProps) {
       data-event-id={eventId}
       key={eventId}
       style={{ ...eventStyle }}
-      onClick={e => {
+      onClick={(e) => {
         props.changeCurrentChosenEventId(eventId);
         e.stopPropagation();
       }}

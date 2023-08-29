@@ -7,8 +7,14 @@ export function getMonthAndYear(selectedDate: Date, classList: string) {
 
   if (classList === "today-date") {
     const currDayOfTheWeek = selectedDate.getDay() || 7;
-    const tempDateMon = getDateNthDaysFromCurrent(selectedDate, 1 - currDayOfTheWeek);
-    const tempDateSun = getDateNthDaysFromCurrent(selectedDate, 7 - currDayOfTheWeek);
+    const tempDateMon = getDateNthDaysFromCurrent(
+      selectedDate,
+      1 - currDayOfTheWeek,
+    );
+    const tempDateSun = getDateNthDaysFromCurrent(
+      selectedDate,
+      7 - currDayOfTheWeek,
+    );
     const monYear = tempDateMon.getFullYear();
     const sunYear = tempDateSun.getFullYear();
     const monDayOfMonth = tempDateMon.getDate();
@@ -29,7 +35,9 @@ export function getMonthAndYear(selectedDate: Date, classList: string) {
       mainDate = singleHeaderDate;
     }
   } else if (classList === "overview-date") {
-    const singleOverviewDate = `${getMonthName(selectedDate)} ${selectedDate.getFullYear()}`;
+    const singleOverviewDate = `${getMonthName(
+      selectedDate,
+    )} ${selectedDate.getFullYear()}`;
     secondaryDate = singleOverviewDate;
   }
 

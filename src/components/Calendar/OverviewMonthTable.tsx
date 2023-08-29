@@ -5,11 +5,15 @@ import { getDateWithNewDay } from "../../utils/getters/getDateWithNewDay";
 
 export function OverviewMonthTable(props: OverviewMonthTableProps) {
   const today = new Date();
-  const weekDayOfFirstDayOfMonth = getDateWithNewDay(props.overviewDate, 1).getDay() || 7;
+  const weekDayOfFirstDayOfMonth =
+    getDateWithNewDay(props.overviewDate, 1).getDay() || 7;
 
   const tempDates = [];
   for (let day = 1; day <= 42; day++) {
-    const tempDate = getDateWithNewDay(props.overviewDate, 1 + day - weekDayOfFirstDayOfMonth);
+    const tempDate = getDateWithNewDay(
+      props.overviewDate,
+      1 + day - weekDayOfFirstDayOfMonth,
+    );
     tempDates.push(tempDate);
   }
 
@@ -34,7 +38,11 @@ export function OverviewMonthTable(props: OverviewMonthTableProps) {
     }
 
     return (
-      <button key={index} className={classList} onClick={() => props.changeToSelectedDay(tempDate)}>
+      <button
+        key={index}
+        className={classList}
+        onClick={() => props.changeToSelectedDay(tempDate)}
+      >
         {tempDate.getDate().toString()}
       </button>
     );

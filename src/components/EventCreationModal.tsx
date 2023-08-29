@@ -22,7 +22,7 @@ export function EventCreationModal(props: EventCreationModalProps) {
       <div className="modal">
         <form
           className="modal-form"
-          onSubmit={e => {
+          onSubmit={(e) => {
             e.preventDefault();
             props.handleCreateEventSubmit(event);
           }}
@@ -43,7 +43,7 @@ export function EventCreationModal(props: EventCreationModalProps) {
             placeholder="Add title"
             autoFocus
             required
-            onChange={e => setEventTitle(e.target.value)}
+            onChange={(e) => setEventTitle(e.target.value)}
             value={eventTitle}
           />
           <p className="start-date-text">Start date:</p>
@@ -52,7 +52,7 @@ export function EventCreationModal(props: EventCreationModalProps) {
             type="datetime-local"
             max="3000-01-01T00:00"
             required
-            onChange={e => setStartDateJson(e.target.value)}
+            onChange={(e) => setStartDateJson(e.target.value)}
             value={startDateJson}
           />
           <p className="end-date-text">End date:</p>
@@ -60,7 +60,7 @@ export function EventCreationModal(props: EventCreationModalProps) {
             className="end-date"
             type="time"
             required
-            onChange={e => {
+            onChange={(e) => {
               setEndHourJson(e.target.value);
               setEndDateJson(`${startDateJson.slice(0, -5) + e.target.value}`);
             }}
@@ -70,7 +70,7 @@ export function EventCreationModal(props: EventCreationModalProps) {
             className="description"
             placeholder="Add description"
             rows={4}
-            onChange={e => setDescription(e.target.value)}
+            onChange={(e) => setDescription(e.target.value)}
             value={description}
           />
           <div className="submission-container">
@@ -84,7 +84,13 @@ export function EventCreationModal(props: EventCreationModalProps) {
             >
               Cancel
             </button>
-            <button className="save square-btn" type="submit" onClick={() => props.handleCreateEventClick(startDateJson, endDateJson)}>
+            <button
+              className="save square-btn"
+              type="submit"
+              onClick={() =>
+                props.handleCreateEventClick(startDateJson, endDateJson)
+              }
+            >
               Save
             </button>
           </div>

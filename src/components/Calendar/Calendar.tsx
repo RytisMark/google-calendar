@@ -23,7 +23,7 @@ export function Calendar(props: CalendarProps) {
         <header className="week-view-header">
           <Weekdays stateDate={props.stateDate} />
           <div className="outer-border-wrapper-top">
-            {outerBorderTop.map(cell => (
+            {outerBorderTop.map((cell) => (
               <div className="outer-border-cell-top" />
             ))}
           </div>
@@ -35,7 +35,7 @@ export function Calendar(props: CalendarProps) {
             ))}
           </ol>
           <div className="outer-border-wrapper-left">
-            {outerBorderLeft.map(cell => (
+            {outerBorderLeft.map((cell) => (
               <div className="outer-border-cell-left" />
             ))}
           </div>

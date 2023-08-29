@@ -20,20 +20,25 @@ export default function App() {
   const [stateDate, setStateDate] = useState(new Date());
   const [extEvents, setExtEvents] = useState(getExtEvents(getEvents()));
   const [showMainMenu, setShowMainMenu] = useState(true);
+
   const [showEventCreationModal, setShowEventCreationModal] = useState(false);
-  const [showEventDescriptionModal, setShowEventDescriptionModal] = useState(false);
+  const [showEventDescriptionModal, setShowEventDescriptionModal] =
+    useState(false);
   const [currentChosenEventId, setCurrentChosenEventId] = useState("");
 
   const toggleMainMenu = () => setShowMainMenu(!showMainMenu);
-  const toggleEventCreationModal = () => setShowEventCreationModal(!showEventCreationModal);
-  const toggleEventDescriptionModal = () => setShowEventDescriptionModal(!showEventDescriptionModal);
+  const toggleEventCreationModal = () =>
+    setShowEventCreationModal(!showEventCreationModal);
+  const toggleEventDescriptionModal = () =>
+    setShowEventDescriptionModal(!showEventDescriptionModal);
 
   const changeCurrentChosenEventId = (eventId: string) => {
     setCurrentChosenEventId(eventId);
     toggleEventDescriptionModal();
   };
 
-  const handleCreateEventClick = (startDate: string, endDate: string) => updateEventEndDateInputError(isCorrectDate(startDate, endDate));
+  const handleCreateEventClick = (startDate: string, endDate: string) =>
+    updateEventEndDateInputError(isCorrectDate(startDate, endDate));
 
   const handleDestroyEventClick = (eventId: string) => {
     toggleEventDescriptionModal();
@@ -65,11 +70,15 @@ export default function App() {
   };
 
   const goToPrevMonthView = () => {
-    setOverviewDate(new Date(overviewDate.getFullYear(), overviewDate.getMonth() - 1, 1));
+    setOverviewDate(
+      new Date(overviewDate.getFullYear(), overviewDate.getMonth() - 1, 1),
+    );
   };
 
   const goToNextMonthView = () => {
-    setOverviewDate(new Date(overviewDate.getFullYear(), overviewDate.getMonth() + 1, 1));
+    setOverviewDate(
+      new Date(overviewDate.getFullYear(), overviewDate.getMonth() + 1, 1),
+    );
   };
 
   const changeToSelectedDay = (selectedDate: Date) => {

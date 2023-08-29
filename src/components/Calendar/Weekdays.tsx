@@ -8,7 +8,10 @@ export function Weekdays(props: { stateDate: Date }) {
 
   const tempDates = [];
   for (let day = 0; day < 7; day++) {
-    const tempDate = getDateNthDaysFromCurrent(props.stateDate, day - currDayOfTheWeek + 1);
+    const tempDate = getDateNthDaysFromCurrent(
+      props.stateDate,
+      day - currDayOfTheWeek + 1,
+    );
     tempDates.push(tempDate);
   }
 
@@ -16,8 +19,14 @@ export function Weekdays(props: { stateDate: Date }) {
     let classList = "";
     if (isSameDay(tempDate, today)) classList = "present-day";
 
-    const weekdayNum = <span className={classList + " day-of-month"}>{tempDate.getDate().toString()}</span>;
-    const weekdayName = <span className={classList + " day-of-week"}>{weekdayNames[index]}</span>;
+    const weekdayNum = (
+      <span className={classList + " day-of-month"}>
+        {tempDate.getDate().toString()}
+      </span>
+    );
+    const weekdayName = (
+      <span className={classList + " day-of-week"}>{weekdayNames[index]}</span>
+    );
     return (
       <div key={index} className="weekday">
         {weekdayName} {weekdayNum}
