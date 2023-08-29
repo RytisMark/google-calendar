@@ -1,83 +1,99 @@
 export interface CalendarInfo {
-	stateDate: Date;
-	overviewDate: Date;
-	extEvents: ExtendedEvent[];
+  stateDate: Date;
+  overviewDate: Date;
+  extEvents: ExtendedEvent[];
 }
 
 export interface Event {
-	eventId: string;
-	eventTitle: string;
-	startDateJson: string;
-	endDateJson: string;
-	description: string;
+  eventId: string;
+  eventTitle: string;
+  startDateJson: string;
+  endDateJson: string;
+  description: string;
 }
 
+export type EventNoId = Omit<Event, "eventId">;
+
 export interface ExtendedEvent extends Event {
-	startDate: Date;
-	endDate: Date;
-	eventTime: string;
-	hours: number;
-	minutes: number;
+  startDate: Date;
+  endDate: Date;
+  eventTime: string;
+  hours: number;
+  minutes: number;
 }
 
 export interface ToolbarProps {
-	toggleMainMenu: Function;
-	goToPrevWeekView: Function;
-	goToNextWeekView: Function;
-	stateDate: Date;
-	goToToday: Function;
+  toggleMainMenu: () => void;
+  goToPrevWeekView: () => void;
+  goToNextWeekView: () => void;
+  stateDate: Date;
+  goToToday: () => void;
 }
 
 export interface NavigationArrowsProps {
-	goToPrevView: Function;
-	goToNextView: Function;
-	classList: string;
+  goToPrevView: () => void;
+  goToNextView: () => void;
+  classList: string;
 }
 
 export interface DateDisplayProps {
-	selectedDate: Date;
-	classList: string;
+  selectedDate: Date;
+  classList: string;
 }
 
 export interface CalendarProps {
-	showMainMenu: boolean;
-	goToPrevMonthView: Function;
-	goToNextMonthView: Function;
-	stateDate: Date;
-	overviewDate: Date;
-	changeToSelectedDay: Function;
-	toggleEventCreationModal: Function;
-	extEvents: ExtendedEvent[];
-	changeCurrentChosenEventId: Function;
+  showMainMenu: boolean;
+  goToPrevMonthView: () => void;
+  goToNextMonthView: () => void;
+  stateDate: Date;
+  overviewDate: Date;
+  changeToSelectedDay: (selectedDate: Date) => void;
+  toggleEventCreationModal: () => void;
+  extEvents: ExtendedEvent[];
+  changeCurrentChosenEventId: (eventId: string) => void;
 }
+
+export interface EventElementProps {
+  extEvent: ExtendedEvent;
+  extEvents: ExtendedEvent[];
+  changeCurrentChosenEventId: Function;
+}
+
 export interface MainMenuProps {
-	showMainMenu: boolean;
-	goToPrevMonthView: Function;
-	goToNextMonthView: Function;
-	stateDate: Date;
-	overviewDate: Date;
-	changeToSelectedDay: Function;
-	toggleEventCreationModal: Function;
+  showMainMenu: boolean;
+  goToPrevMonthView: () => void;
+  goToNextMonthView: () => void;
+  stateDate: Date;
+  overviewDate: Date;
+  changeToSelectedDay: (selectedDate: Date) => void;
+  toggleEventCreationModal: () => void;
 }
 
 export interface OverviewMonthTableProps {
-	stateDate: Date;
-	overviewDate: Date;
-	changeToSelectedDay: Function;
+  stateDate: Date;
+  overviewDate: Date;
+  changeToSelectedDay: (selectedDate: Date) => void;
 }
 
 export interface WeekViewTableProps {
-	rows: number;
-	cols: number;
-	extEvents: ExtendedEvent[];
-	stateDate: Date;
-	changeCurrentChosenEventId: Function;
+  rows: number;
+  cols: number;
+  extEvents: ExtendedEvent[];
+  stateDate: Date;
+  changeCurrentChosenEventId: (eventId: string) => void;
 }
 
-export interface renderEventsProps {
-	extEvents: ExtendedEvent[];
-	columnIndex: number;
-	cellIndex: number;
-	stateDate: Date;
-	changeCurrentChosenEventId: Function;
+export interface EventCreationModalProps {
+  showEventCreationModal: boolean;
+  handleCreateEventClick: (startDate: string, endDate: string) => void;
+  handleCreateEventSubmit: (eventObj: EventNoId) => void;
+  toggleEventCreationModal: () => void;
+}
+
+export interface EventDescriptionModalProps {
+  showEventDescriptionModal: boolean;
+  toggleEventDescriptionModal: () => void;
+  extEvents: ExtendedEvent[];
+  currentChosenEventId: string;
+  handleDestroyEventClick: (eventId: string) => void;
 }
